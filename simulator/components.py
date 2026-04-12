@@ -9,10 +9,10 @@ Pc:       bar
 Tb, Tc:   K
 """
 
-from nist_scraper import Component
+from models import component
 
 component_db = {
-    "water": Component(
+    "water":  component(
         name="water",
         mw=18.0153,
         Tb=373.124,
@@ -24,7 +24,7 @@ component_db = {
         Hvap=43987.4,
         antoine=(5.11564, 1687.537, -42.98),
     ),
-    "hydrogen": Component(
+    "hydrogen":  component(
         name="hydrogen",
         mw=2.0159,
         Tb=20.369,
@@ -36,7 +36,7 @@ component_db = {
         Hvap=1.8,
         antoine=(2.93954, 66.7954, 2.5),
     ),
-    "oxygen": Component(
+    "oxygen": component(
         name="oxygen",
         mw=31.9988,
         Tb=90.188,
@@ -48,7 +48,7 @@ component_db = {
         Hvap=218.2,
         antoine=(3.81634, 319.013, -6.45),
     ),
-    "nitrogen": Component(
+    "nitrogen": component(
         name="nitrogen",
         mw=28.0134,
         Tb=77.355,
@@ -60,7 +60,7 @@ component_db = {
         Hvap=156.3,
         antoine=(3.61947, 255.68, -6.6),
     ),
-    "carbon dioxide": Component(
+    "carbon dioxide": component(
         name="carbon dioxide",
         mw=44.0095,
         Tb=194.67,
@@ -72,7 +72,7 @@ component_db = {
         Hvap=5265.5,
         antoine=(6.81228, 1301.679, -3.494),
     ),
-    "carbon monoxide": Component(
+    "carbon monoxide": component(
         name="carbon monoxide",
         mw=28.0101,
         Tb=81.638,
@@ -84,7 +84,7 @@ component_db = {
         Hvap=168.4,
         antoine=(3.81912, 291.743, -5.154),
     ),
-    "hydrogen chloride": Component(
+    "hydrogen chloride": component(
         name="hydrogen chloride",
         mw=36.4609,
         Tb=188.173,
@@ -96,7 +96,7 @@ component_db = {
         Hvap=8672.1,
         antoine=(4.2949, 745.78, -14.27),
     ),
-    "hydrogen fluoride": Component(
+    "hydrogen fluoride": component(
         name="hydrogen fluoride",
         mw=20.0063,
         Tb=293.15,
@@ -108,7 +108,7 @@ component_db = {
         Hvap=7701.6,
         antoine=(4.80588, 1475.6, 14.73),
     ),
-    "hydrogen cyanide": Component(
+    "hydrogen cyanide": component(
         name="hydrogen cyanide",
         mw=27.0253,
         Tb=298.78,
@@ -120,7 +120,7 @@ component_db = {
         Hvap=26950.6,
         antoine=(4.67417, 1340.791, -11.592),
     ),
-    "phosgene": Component(
+    "phosgene": component(
         name="phosgene",
         mw=98.9161,
         Tb=280.65,
@@ -132,7 +132,7 @@ component_db = {
         Hvap=23772.0,
         antoine=(4.05103, 978.937, -38.717),
     ),
-    "sulfur trioxide": Component(
+    "sulfur trioxide": component(
         name="sulfur trioxide",
         mw=80.0632,
         Tb=317.65,
@@ -144,7 +144,7 @@ component_db = {
         Hvap=43272.5,
         antoine=(6.17575, 1735.31, -36.65),
     ),
-    "silicon tetrachloride": Component(
+    "silicon tetrachloride": component(
         name="silicon tetrachloride",
         mw=169.8975,
         Tb=330.8,
@@ -156,7 +156,7 @@ component_db = {
         Hvap=29700.5,
         antoine=(4.82892, 1616.546, 5.305),
     ),
-    "trichlorosilane": Component(
+    "trichlorosilane": component(
         name="trichlorosilane",
         mw=135.4524,
         Tb=306.15,
@@ -169,7 +169,7 @@ component_db = {
         antoine=(4.21609, 1170.0, -27.0),
     ),
     # "trimethylsilane": scrape failed
-    "hexamethyldisiloxane": Component(
+    "hexamethyldisiloxane": component(
         name="hexamethyldisiloxane",
         mw=162.3775,
         Tb=373.658,
@@ -181,7 +181,7 @@ component_db = {
         Hvap=37163.7,
         antoine=(3.90199, 1203.916, -64.673),
     ),
-    "tetraethyl orthosilicate": Component(
+    "tetraethyl orthosilicate": component(
         name="tetraethyl orthosilicate",
         mw=208.3275,
         Tb=441.15,
@@ -193,7 +193,7 @@ component_db = {
         Hvap=53385.6,
         antoine=(4.17312, 1561.277, -67.572),
     ),
-    "methane": Component(
+    "methane": component(
         name="methane",
         mw=16.0425,
         Tb=111.667,
@@ -205,7 +205,7 @@ component_db = {
         Hvap=131.5,
         antoine=(3.7687, 395.744, -6.469),
     ),
-    "ethane": Component(
+    "ethane": component(
         name="ethane",
         mw=30.069,
         Tb=184.569,
@@ -217,7 +217,7 @@ component_db = {
         Hvap=5049.9,
         antoine=(3.95405, 663.72, -16.469),
     ),
-    "propane": Component(
+    "propane": component(
         name="propane",
         mw=44.0956,
         Tb=231.036,
@@ -229,7 +229,7 @@ component_db = {
         Hvap=14804.5,
         antoine=(3.92828, 803.997, -26.11),
     ),
-    "n-butane": Component(
+    "n-butane": component(
         name="n-butane",
         mw=58.1222,
         Tb=272.66,
@@ -241,7 +241,7 @@ component_db = {
         Hvap=21009.8,
         antoine=(3.93266, 935.773, -34.361),
     ),
-    "n-pentane": Component(
+    "n-pentane": component(
         name="n-pentane",
         mw=72.1488,
         Tb=309.209,
@@ -253,7 +253,7 @@ component_db = {
         Hvap=26435.7,
         antoine=(3.97786, 1064.84, -41.136),
     ),
-    "n-hexane": Component(
+    "n-hexane": component(
         name="n-hexane",
         mw=86.1754,
         Tb=341.866,
@@ -265,7 +265,7 @@ component_db = {
         Hvap=31556.7,
         antoine=(4.00139, 1170.875, -48.833),
     ),
-    "n-heptane": Component(
+    "n-heptane": component(
         name="n-heptane",
         mw=100.2019,
         Tb=371.55,
@@ -277,7 +277,7 @@ component_db = {
         Hvap=36574.9,
         antoine=(4.02023, 1263.909, -56.718),
     ),
-    "n-octane": Component(
+    "n-octane": component(
         name="n-octane",
         mw=114.2285,
         Tb=398.794,
@@ -289,7 +289,7 @@ component_db = {
         Hvap=41513.0,
         antoine=(4.05075, 1356.36, -63.515),
     ),
-    "n-nonane": Component(
+    "n-nonane": component(
         name="n-nonane",
         mw=128.2551,
         Tb=423.913,
@@ -301,7 +301,7 @@ component_db = {
         Hvap=46501.7,
         antoine=(4.07356, 1438.03, -70.456),
     ),
-    "n-decane": Component(
+    "n-decane": component(
         name="n-decane",
         mw=142.2817,
         Tb=447.27,
@@ -313,7 +313,7 @@ component_db = {
         Hvap=51368.9,
         antoine=(4.06853, 1495.17, -79.292),
     ),
-    "benzene": Component(
+    "benzene": component(
         name="benzene",
         mw=78.1118,
         Tb=353.219,
@@ -325,7 +325,7 @@ component_db = {
         Hvap=33864.8,
         antoine=(3.98523, 1184.24, -55.578),
     ),
-    "toluene": Component(
+    "toluene": component(
         name="toluene",
         mw=92.1384,
         Tb=383.746,
@@ -337,7 +337,7 @@ component_db = {
         Hvap=38039.5,
         antoine=(4.05043, 1327.62, -55.525),
     ),
-    "p-xylene": Component(
+    "p-xylene": component(
         name="p-xylene",
         mw=106.165,
         Tb=411.47,
@@ -349,7 +349,7 @@ component_db = {
         Hvap=42387.5,
         antoine=(4.10494, 1446.832, -58.523),
     ),
-    "o-xylene": Component(
+    "o-xylene": component(
         name="o-xylene",
         mw=106.165,
         Tb=417.521,
@@ -361,7 +361,7 @@ component_db = {
         Hvap=43423.3,
         antoine=(4.09789, 1458.706, -61.109),
     ),
-    "m-xylene": Component(
+    "m-xylene": component(
         name="m-xylene",
         mw=106.165,
         Tb=412.214,
@@ -373,7 +373,7 @@ component_db = {
         Hvap=42701.4,
         antoine=(4.14051, 1468.703, -57.03),
     ),
-    "ethylene": Component(
+    "ethylene": component(
         name="ethylene",
         mw=28.0532,
         Tb=169.379,
@@ -385,7 +385,7 @@ component_db = {
         Hvap=379.7,
         antoine=(3.91382, 596.526, -16.78),
     ),
-    "propylene": Component(
+    "propylene": component(
         name="propylene",
         mw=42.0797,
         Tb=225.531,
@@ -397,7 +397,7 @@ component_db = {
         Hvap=14092.1,
         antoine=(3.95606, 789.624, -25.57),
     ),
-    "1-butene": Component(
+    "1-butene": component(
         name="1-butene",
         mw=56.1063,
         Tb=266.844,
@@ -409,7 +409,7 @@ component_db = {
         Hvap=20220.0,
         antoine=(3.9178, 908.8, -34.61),
     ),
-    "2-butene": Component(
+    "2-butene": component(
         name="2-butene",
         mw=56.1063,
         Tb=274.03,
@@ -421,7 +421,7 @@ component_db = {
         Hvap=21399.5,
         antoine=(4.00827, 967.5, -32.31),
     ),
-    "isobutylene": Component(
+    "isobutylene": component(
         name="isobutylene",
         mw=56.1063,
         Tb=266.146,
@@ -433,7 +433,7 @@ component_db = {
         Hvap=20136.1,
         antoine=(3.80956, 866.25, -38.51),
     ),
-    "1-pentene": Component(
+    "1-pentene": component(
         name="1-pentene",
         mw=70.1329,
         Tb=303.101,
@@ -445,7 +445,7 @@ component_db = {
         Hvap=25493.3,
         antoine=(3.96914, 1044.01, -39.7),
     ),
-    "1-hexene": Component(
+    "1-hexene": component(
         name="1-hexene",
         mw=84.1595,
         Tb=336.55,
@@ -457,7 +457,7 @@ component_db = {
         Hvap=30599.4,
         antoine=(3.9826, 1148.62, -47.81),
     ),
-    "1-octene": Component(
+    "1-octene": component(
         name="1-octene",
         mw=112.2126,
         Tb=394.45,
@@ -469,7 +469,7 @@ component_db = {
         Hvap=40485.3,
         antoine=(4.05985, 1355.46, -60.1),
     ),
-    "styrene": Component(
+    "styrene": component(
         name="styrene",
         mw=104.1491,
         Tb=418.45,
@@ -481,7 +481,7 @@ component_db = {
         Hvap=44304.4,
         antoine=(4.0593, 1459.909, -59.551),
     ),
-    "ethylbenzene": Component(
+    "ethylbenzene": component(
         name="ethylbenzene",
         mw=106.165,
         Tb=409.314,
@@ -493,7 +493,7 @@ component_db = {
         Hvap=42247.5,
         antoine=(4.06861, 1415.77, -60.85),
     ),
-    "cumene": Component(
+    "cumene": component(
         name="cumene",
         mw=120.1916,
         Tb=425.55,
@@ -505,7 +505,7 @@ component_db = {
         Hvap=44947.9,
         antoine=(4.06112, 1460.766, -65.32),
     ),
-    "naphthalene": Component(
+    "naphthalene": component(
         name="naphthalene",
         mw=128.1705,
         Tb=491.15,
@@ -517,7 +517,7 @@ component_db = {
         Hvap=55997.4,
         antoine=(4.13555, 1733.71, -71.291),
     ),
-    "tetralin": Component(
+    "tetralin": component(
         name="tetralin",
         mw=132.2023,
         Tb=480.35,
@@ -529,7 +529,7 @@ component_db = {
         Hvap=54087.6,
         antoine=(4.12671, 1690.912, -70.229),
     ),
-    "decalin": Component(
+    "decalin": component(
         name="decalin",
         mw=138.2499,
         Tb=468.95,
@@ -541,7 +541,7 @@ component_db = {
         Hvap=48810.3,
         antoine=(4.00019, 1594.46, -69.758),
     ),
-    "indane": Component(
+    "indane": component(
         name="indane",
         mw=118.1757,
         Tb=450.95,
@@ -553,7 +553,7 @@ component_db = {
         Hvap=47387.7,
         antoine=(4.1123, 1577.321, -66.828),
     ),
-    "isobutane": Component(
+    "isobutane": component(
         name="isobutane",
         mw=58.1222,
         Tb=261.401,
@@ -565,7 +565,7 @@ component_db = {
         Hvap=19117.6,
         antoine=(4.00272, 947.54, -24.28),
     ),
-    "isopentane": Component(
+    "isopentane": component(
         name="isopentane",
         mw=72.1488,
         Tb=300.976,
@@ -577,7 +577,7 @@ component_db = {
         Hvap=24924.1,
         antoine=(3.92023, 1022.88, -39.69),
     ),
-    "neopentane": Component(
+    "neopentane": component(
         name="neopentane",
         mw=72.1488,
         Tb=282.655,
@@ -589,7 +589,7 @@ component_db = {
         Hvap=21891.2,
         antoine=(3.83916, 938.234, -37.901),
     ),
-    "isohexane": Component(
+    "isohexane": component(
         name="isohexane",
         mw=86.1754,
         Tb=333.362,
@@ -601,7 +601,7 @@ component_db = {
         Hvap=29927.0,
         antoine=(3.98332, 1145.8, -45.335),
     ),
-    "2-methylpentane": Component(
+    "2-methylpentane": component(
         name="2-methylpentane",
         mw=86.1754,
         Tb=333.362,
@@ -613,7 +613,7 @@ component_db = {
         Hvap=29927.0,
         antoine=(3.98332, 1145.8, -45.335),
     ),
-    "3-methylpentane": Component(
+    "3-methylpentane": component(
         name="3-methylpentane",
         mw=86.1754,
         Tb=336.379,
@@ -625,7 +625,7 @@ component_db = {
         Hvap=30353.8,
         antoine=(3.99283, 1162.37, -44.864),
     ),
-    "2-methylhexane": Component(
+    "2-methylhexane": component(
         name="2-methylhexane",
         mw=100.2019,
         Tb=363.15,
@@ -637,7 +637,7 @@ component_db = {
         Hvap=34138.8,
         antoine=(3.99739, 1235.52, -53.653),
     ),
-    "3-methylhexane": Component(
+    "3-methylhexane": component(
         name="3-methylhexane",
         mw=100.2019,
         Tb=364.15,
@@ -649,7 +649,7 @@ component_db = {
         Hvap=34396.8,
         antoine=(3.99571, 1242.018, -53.715),
     ),
-    "isooctane": Component(
+    "isooctane": component(
         name="isooctane",
         mw=114.2285,
         Tb=372.358,
@@ -661,7 +661,7 @@ component_db = {
         Hvap=35135.8,
         antoine=(3.93646, 1257.85, -52.383),
     ),
-    "cyclohexane": Component(
+    "cyclohexane": component(
         name="cyclohexane",
         mw=84.1595,
         Tb=353.865,
@@ -673,7 +673,7 @@ component_db = {
         Hvap=33034.0,
         antoine=(3.93002, 1182.774, -52.532),
     ),
-    "methylcyclohexane": Component(
+    "methylcyclohexane": component(
         name="methylcyclohexane",
         mw=98.1861,
         Tb=374.01,
@@ -685,7 +685,7 @@ component_db = {
         Hvap=35325.9,
         antoine=(3.98232, 1290.968, -49.449),
     ),
-    "cyclopentane": Component(
+    "cyclopentane": component(
         name="cyclopentane",
         mw=70.1329,
         Tb=322.4,
@@ -697,7 +697,7 @@ component_db = {
         Hvap=28520.5,
         antoine=(4.06783, 1152.574, -38.64),
     ),
-    "methylcyclopentane": Component(
+    "methylcyclopentane": component(
         name="methylcyclopentane",
         mw=84.1595,
         Tb=344.95,
@@ -709,7 +709,7 @@ component_db = {
         Hvap=31787.5,
         antoine=(4.18199, 1295.543, -34.76),
     ),
-    "ethylcyclohexane": Component(
+    "ethylcyclohexane": component(
         name="ethylcyclohexane",
         mw=112.2126,
         Tb=404.95,
@@ -721,7 +721,7 @@ component_db = {
         Hvap=40654.4,
         antoine=(3.9702, 1369.41, -59.55),
     ),
-    "decahydronaphthalene": Component(
+    "decahydronaphthalene": component(
         name="decahydronaphthalene",
         mw=138.2499,
         Tb=468.95,
@@ -733,7 +733,7 @@ component_db = {
         Hvap=48810.3,
         antoine=(4.00019, 1594.46, -69.758),
     ),
-    "methanol": Component(
+    "methanol": component(
         name="methanol",
         mw=32.0419,
         Tb=337.632,
@@ -745,7 +745,7 @@ component_db = {
         Hvap=37457.2,
         antoine=(5.20277, 1580.08, -33.65),
     ),
-    "ethanol": Component(
+    "ethanol": component(
         name="ethanol",
         mw=46.0684,
         Tb=351.57,
@@ -757,7 +757,7 @@ component_db = {
         Hvap=42413.4,
         antoine=(5.33675, 1648.22, -42.232),
     ),
-    "1-propanol": Component(
+    "1-propanol": component(
         name="1-propanol",
         mw=60.095,
         Tb=370.19,
@@ -769,7 +769,7 @@ component_db = {
         Hvap=47937.1,
         antoine=(4.99991, 1512.94, -67.343),
     ),
-    "2-propanol": Component(
+    "2-propanol": component(
         name="2-propanol",
         mw=60.095,
         Tb=355.36,
@@ -781,7 +781,7 @@ component_db = {
         Hvap=45768.6,
         antoine=(5.24268, 1580.92, -53.54),
     ),
-    "1-butanol": Component(
+    "1-butanol": component(
         name="1-butanol",
         mw=74.1216,
         Tb=390.75,
@@ -793,7 +793,7 @@ component_db = {
         Hvap=53535.3,
         antoine=(4.6493, 1395.14, -90.411),
     ),
-    "2-butanol": Component(
+    "2-butanol": component(
         name="2-butanol",
         mw=74.1216,
         Tb=372.55,
@@ -805,7 +805,7 @@ component_db = {
         Hvap=49931.7,
         antoine=(4.19827, 1094.254, -111.603),
     ),
-    "isobutanol": Component(
+    "isobutanol": component(
         name="isobutanol",
         mw=74.1216,
         Tb=380.99,
@@ -817,7 +817,7 @@ component_db = {
         Hvap=51241.1,
         antoine=(4.34504, 1190.38, -106.48),
     ),
-    "tert-butanol": Component(
+    "tert-butanol": component(
         name="tert-butanol",
         mw=74.1216,
         Tb=355.45,
@@ -829,7 +829,7 @@ component_db = {
         Hvap=46875.9,
         antoine=(4.44484, 1154.48, -95.5),
     ),
-    "1-pentanol": Component(
+    "1-pentanol": component(
         name="1-pentanol",
         mw=88.1482,
         Tb=410.75,
@@ -841,7 +841,7 @@ component_db = {
         Hvap=57097.0,
         antoine=(4.39646, 1336.01, -106.83),
     ),
-    "1-hexanol": Component(
+    "1-hexanol": component(
         name="1-hexanol",
         mw=102.1748,
         Tb=430.05,
@@ -853,7 +853,7 @@ component_db = {
         Hvap=63815.9,
         antoine=(4.18948, 1295.59, -120.64),
     ),
-    "ethylene glycol": Component(
+    "ethylene glycol": component(
         name="ethylene glycol",
         mw=62.0678,
         Tb=470.313,
@@ -865,7 +865,7 @@ component_db = {
         Hvap=66078.1,
         antoine=(4.97012, 1914.951, -84.996),
     ),
-    "propylene glycol": Component(
+    "propylene glycol": component(
         name="propylene glycol",
         mw=76.0944,
         Tb=460.45,
@@ -877,7 +877,7 @@ component_db = {
         Hvap=66681.9,
         antoine=(6.07936, 2692.187, -17.94),
     ),
-    "glycerol": Component(
+    "glycerol": component(
         name="glycerol",
         mw=92.0938,
         Tb=562.15,
@@ -889,7 +889,7 @@ component_db = {
         Hvap=85423.3,
         antoine=(3.93737, 1411.531, -200.566),
     ),
-    "benzyl alcohol": Component(
+    "benzyl alcohol": component(
         name="benzyl alcohol",
         mw=108.1378,
         Tb=478.45,
@@ -901,7 +901,7 @@ component_db = {
         Hvap=65505.5,
         antoine=(4.47713, 1738.9, -89.559),
     ),
-    "cyclohexanol": Component(
+    "cyclohexanol": component(
         name="cyclohexanol",
         mw=100.1589,
         Tb=434.05,
@@ -913,7 +913,7 @@ component_db = {
         Hvap=62046.9,
         antoine=(3.08077, 777.363, -182.037),
     ),
-    "acetone": Component(
+    "acetone": component(
         name="acetone",
         mw=58.0791,
         Tb=329.225,
@@ -925,7 +925,7 @@ component_db = {
         Hvap=31025.4,
         antoine=(4.2184, 1197.01, -45.09),
     ),
-    "methyl ethyl ketone": Component(
+    "methyl ethyl ketone": component(
         name="methyl ethyl ketone",
         mw=72.1057,
         Tb=352.75,
@@ -937,7 +937,7 @@ component_db = {
         Hvap=34624.5,
         antoine=(4.1386, 1232.63, -54.46),
     ),
-    "methyl isobutyl ketone": Component(
+    "methyl isobutyl ketone": component(
         name="methyl isobutyl ketone",
         mw=100.1589,
         Tb=388.85,
@@ -949,7 +949,7 @@ component_db = {
         Hvap=40638.0,
         antoine=(3.8222, 1190.6904, -77.7),
     ),
-    "cyclohexanone": Component(
+    "cyclohexanone": component(
         name="cyclohexanone",
         mw=98.143,
         Tb=428.55,
@@ -961,7 +961,7 @@ component_db = {
         Hvap=45184.7,
         antoine=(4.1033, 1495.51, -63.598),
     ),
-    "acetophenone": Component(
+    "acetophenone": component(
         name="acetophenone",
         mw=120.1485,
         Tb=475.25,
@@ -973,7 +973,7 @@ component_db = {
         Hvap=54114.4,
         antoine=(4.64896, 2006.397, -43.472),
     ),
-    "diethyl ketone": Component(
+    "diethyl ketone": component(
         name="diethyl ketone",
         mw=86.1323,
         Tb=375.05,
@@ -985,7 +985,7 @@ component_db = {
         Hvap=38524.8,
         antoine=(4.42708, 1481.17, -40.14),
     ),
-    "methyl propyl ketone": Component(
+    "methyl propyl ketone": component(
         name="methyl propyl ketone",
         mw=86.1323,
         Tb=375.35,
@@ -997,7 +997,7 @@ component_db = {
         Hvap=38375.6,
         antoine=(4.1514, 1316.73, -57.77),
     ),
-    "diisobutyl ketone": Component(
+    "diisobutyl ketone": component(
         name="diisobutyl ketone",
         mw=142.2386,
         Tb=430.15,
@@ -1009,7 +1009,7 @@ component_db = {
         Hvap=51165.4,
         antoine=(4.06543, 1473.632, -78.389),
     ),
-    "isophorone": Component(
+    "isophorone": component(
         name="isophorone",
         mw=138.2069,
         Tb=487.95,
@@ -1021,7 +1021,7 @@ component_db = {
         Hvap=56209.7,
         antoine=(4.42483, 1985.971, -39.054),
     ),
-    "benzophenone": Component(
+    "benzophenone": component(
         name="benzophenone",
         mw=182.2179,
         Tb=579.05,
@@ -1033,7 +1033,7 @@ component_db = {
         Hvap=76781.1,
         antoine=(4.36238, 2116.372, -93.43),
     ),
-    "acetic acid": Component(
+    "acetic acid": component(
         name="acetic acid",
         mw=60.052,
         Tb=391.05,
@@ -1045,7 +1045,7 @@ component_db = {
         Hvap=23420.4,
         antoine=(4.54456, 1555.12, -48.5),
     ),
-    "formic acid": Component(
+    "formic acid": component(
         name="formic acid",
         mw=46.0254,
         Tb=374.15,
@@ -1057,7 +1057,7 @@ component_db = {
         Hvap=19952.4,
         antoine=(2.00121, 515.0, -139.408),
     ),
-    "propionic acid": Component(
+    "propionic acid": component(
         name="propionic acid",
         mw=74.0785,
         Tb=414.65,
@@ -1069,7 +1069,7 @@ component_db = {
         Hvap=30969.0,
         antoine=(4.75466, 1662.582, -64.104),
     ),
-    "butyric acid": Component(
+    "butyric acid": component(
         name="butyric acid",
         mw=88.1051,
         Tb=436.85,
@@ -1081,7 +1081,7 @@ component_db = {
         Hvap=40177.0,
         antoine=(4.8234, 1731.708, -77.195),
     ),
-    "valeric acid": Component(
+    "valeric acid": component(
         name="valeric acid",
         mw=102.1317,
         Tb=459.25,
@@ -1093,7 +1093,7 @@ component_db = {
         Hvap=51168.2,
         antoine=(4.1692, 1405.8, -121.35),
     ),
-    "acrylic acid": Component(
+    "acrylic acid": component(
         name="acrylic acid",
         mw=72.0627,
         Tb=415.15,
@@ -1105,7 +1105,7 @@ component_db = {
         Hvap=27969.1,
         antoine=(2.69607, 621.275, -121.929),
     ),
-    "benzoic acid": Component(
+    "benzoic acid": component(
         name="benzoic acid",
         mw=122.1213,
         Tb=523.35,
@@ -1118,7 +1118,7 @@ component_db = {
         antoine=(4.47834, 1771.357, -127.484),
     ),
     # "oxalic acid": scrape failed
-    "adipic acid": Component(
+    "adipic acid": component(
         name="adipic acid",
         mw=146.1412,
         Tb=610.65,
@@ -1131,7 +1131,7 @@ component_db = {
         antoine=(5.47306, 2813.066, -95.951),
     ),
     # "lactic acid": scrape failed
-    "methyl acetate": Component(
+    "methyl acetate": component(
         name="methyl acetate",
         mw=74.0785,
         Tb=329.85,
@@ -1143,7 +1143,7 @@ component_db = {
         Hvap=32381.7,
         antoine=(4.18621, 1156.43, -53.46),
     ),
-    "ethyl acetate": Component(
+    "ethyl acetate": component(
         name="ethyl acetate",
         mw=88.1051,
         Tb=350.25,
@@ -1155,7 +1155,7 @@ component_db = {
         Hvap=35661.8,
         antoine=(4.13361, 1195.13, -60.68),
     ),
-    "n-propyl acetate": Component(
+    "n-propyl acetate": component(
         name="n-propyl acetate",
         mw=102.1317,
         Tb=374.15,
@@ -1167,7 +1167,7 @@ component_db = {
         Hvap=39523.0,
         antoine=(4.05548, 1233.46, -70.07),
     ),
-    "n-butyl acetate": Component(
+    "n-butyl acetate": component(
         name="n-butyl acetate",
         mw=116.1583,
         Tb=399.15,
@@ -1179,7 +1179,7 @@ component_db = {
         Hvap=43881.8,
         antoine=(4.5, 1596.7, -43.85),
     ),
-    "isobutyl acetate": Component(
+    "isobutyl acetate": component(
         name="isobutyl acetate",
         mw=116.1583,
         Tb=390.05,
@@ -1191,7 +1191,7 @@ component_db = {
         Hvap=41118.6,
         antoine=(4.3546, 1462.4, -53.45),
     ),
-    "ethyl formate": Component(
+    "ethyl formate": component(
         name="ethyl formate",
         mw=74.0785,
         Tb=327.24,
@@ -1203,7 +1203,7 @@ component_db = {
         Hvap=31900.2,
         antoine=(4.07899, 1101.0, -57.17),
     ),
-    "vinyl acetate": Component(
+    "vinyl acetate": component(
         name="vinyl acetate",
         mw=86.0892,
         Tb=345.75,
@@ -1215,7 +1215,7 @@ component_db = {
         Hvap=34583.3,
         antoine=(5.22841, 1807.332, 0.726),
     ),
-    "ethyl acrylate": Component(
+    "ethyl acrylate": component(
         name="ethyl acrylate",
         mw=100.1158,
         Tb=372.05,
@@ -1227,7 +1227,7 @@ component_db = {
         Hvap=38944.8,
         antoine=(4.27453, 1366.06, -52.678),
     ),
-    "methyl acrylate": Component(
+    "methyl acrylate": component(
         name="methyl acrylate",
         mw=86.0892,
         Tb=353.25,
@@ -1239,7 +1239,7 @@ component_db = {
         Hvap=35245.0,
         antoine=(4.32327, 1338.663, -43.516),
     ),
-    "dimethyl phthalate": Component(
+    "dimethyl phthalate": component(
         name="dimethyl phthalate",
         mw=194.184,
         Tb=555.85,
@@ -1251,7 +1251,7 @@ component_db = {
         Hvap=70589.0,
         antoine=(2.28119, 584.158, -294.004),
     ),
-    "formaldehyde": Component(
+    "formaldehyde": component(
         name="formaldehyde",
         mw=30.026,
         Tb=254.05,
@@ -1263,7 +1263,7 @@ component_db = {
         Hvap=20876.1,
         antoine=(4.28176, 959.43, -29.758),
     ),
-    "acetaldehyde": Component(
+    "acetaldehyde": component(
         name="acetaldehyde",
         mw=44.0526,
         Tb=293.95,
@@ -1275,7 +1275,7 @@ component_db = {
         Hvap=25480.1,
         antoine=(3.68639, 822.894, -69.899),
     ),
-    "propionaldehyde": Component(
+    "propionaldehyde": component(
         name="propionaldehyde",
         mw=58.0791,
         Tb=321.15,
@@ -1287,7 +1287,7 @@ component_db = {
         Hvap=29869.7,
         antoine=(4.1742, 1154.8, -44.15),
     ),
-    "butyraldehyde": Component(
+    "butyraldehyde": component(
         name="butyraldehyde",
         mw=72.1057,
         Tb=347.95,
@@ -1299,7 +1299,7 @@ component_db = {
         Hvap=33977.9,
         antoine=(3.59112, 952.851, -82.569),
     ),
-    "benzaldehyde": Component(
+    "benzaldehyde": component(
         name="benzaldehyde",
         mw=106.1219,
         Tb=451.85,
@@ -1311,7 +1311,7 @@ component_db = {
         Hvap=49504.5,
         antoine=(5.21496, 2337.539, -5.103),
     ),
-    "furfural": Component(
+    "furfural": component(
         name="furfural",
         mw=96.0841,
         Tb=434.65,
@@ -1323,7 +1323,7 @@ component_db = {
         Hvap=48631.8,
         antoine=(4.09355, 1430.133, -84.449),
     ),
-    "acrolein": Component(
+    "acrolein": component(
         name="acrolein",
         mw=56.0633,
         Tb=325.45,
@@ -1335,7 +1335,7 @@ component_db = {
         Hvap=29837.6,
         antoine=(4.11586, 1167.888, -41.56),
     ),
-    "crotonaldehyde": Component(
+    "crotonaldehyde": component(
         name="crotonaldehyde",
         mw=70.0898,
         Tb=375.35,
@@ -1349,7 +1349,7 @@ component_db = {
     ),
     # "glyoxal": scrape failed
     # "glutaraldehyde": scrape failed
-    "diethyl ether": Component(
+    "diethyl ether": component(
         name="diethyl ether",
         mw=74.1216,
         Tb=307.604,
@@ -1361,7 +1361,7 @@ component_db = {
         Hvap=27151.7,
         antoine=(4.10962, 1090.64, -41.95),
     ),
-    "diisopropyl ether": Component(
+    "diisopropyl ether": component(
         name="diisopropyl ether",
         mw=102.1748,
         Tb=341.55,
@@ -1373,7 +1373,7 @@ component_db = {
         Hvap=32085.6,
         antoine=(3.96649, 1135.034, -54.92),
     ),
-    "tetrahydrofuran": Component(
+    "tetrahydrofuran": component(
         name="tetrahydrofuran",
         mw=72.1057,
         Tb=339.15,
@@ -1385,7 +1385,7 @@ component_db = {
         Hvap=31971.2,
         antoine=(4.12142, 1203.11, -46.795),
     ),
-    "1,4-dioxane": Component(
+    "1,4-dioxane": component(
         name="1,4-dioxane",
         mw=88.1051,
         Tb=374.35,
@@ -1397,7 +1397,7 @@ component_db = {
         Hvap=38603.6,
         antoine=(4.58135, 1570.093, -31.297),
     ),
-    "methyl tert-butyl ether": Component(
+    "methyl tert-butyl ether": component(
         name="methyl tert-butyl ether",
         mw=88.1482,
         Tb=328.25,
@@ -1409,7 +1409,7 @@ component_db = {
         Hvap=30171.6,
         antoine=(4.62562, 1454.276, -13.144),
     ),
-    "ethylene oxide": Component(
+    "ethylene oxide": component(
         name="ethylene oxide",
         mw=44.0526,
         Tb=283.66,
@@ -1421,7 +1421,7 @@ component_db = {
         Hvap=24717.7,
         antoine=(4.386, 1115.1, -29.015),
     ),
-    "propylene oxide": Component(
+    "propylene oxide": component(
         name="propylene oxide",
         mw=58.0791,
         Tb=307.268,
@@ -1433,7 +1433,7 @@ component_db = {
         Hvap=28091.4,
         antoine=(3.55046, 802.487, -81.348),
     ),
-    "furan": Component(
+    "furan": component(
         name="furan",
         mw=68.074,
         Tb=304.45,
@@ -1445,7 +1445,7 @@ component_db = {
         Hvap=27542.0,
         antoine=(4.10003, 1060.801, -45.416),
     ),
-    "anisole": Component(
+    "anisole": component(
         name="anisole",
         mw=108.1378,
         Tb=426.75,
@@ -1457,7 +1457,7 @@ component_db = {
         Hvap=46607.8,
         antoine=(4.17726, 1489.756, -69.607),
     ),
-    "diphenyl ether": Component(
+    "diphenyl ether": component(
         name="diphenyl ether",
         mw=170.2072,
         Tb=531.15,
@@ -1469,7 +1469,7 @@ component_db = {
         Hvap=58618.2,
         antoine=(4.13678, 1800.415, -95.324),
     ),
-    "chloromethane": Component(
+    "chloromethane": component(
         name="chloromethane",
         mw=50.4875,
         Tb=249.173,
@@ -1481,7 +1481,7 @@ component_db = {
         Hvap=18875.2,
         antoine=(4.16533, 920.86, -27.57),
     ),
-    "dichloromethane": Component(
+    "dichloromethane": component(
         name="dichloromethane",
         mw=84.9326,
         Tb=312.95,
@@ -1493,7 +1493,7 @@ component_db = {
         Hvap=29219.5,
         antoine=(4.07622, 1070.07, -49.91),
     ),
-    "chloroform": Component(
+    "chloroform": component(
         name="chloroform",
         mw=119.3776,
         Tb=334.35,
@@ -1505,7 +1505,7 @@ component_db = {
         Hvap=31295.3,
         antoine=(3.96288, 1106.904, -54.598),
     ),
-    "carbon tetrachloride": Component(
+    "carbon tetrachloride": component(
         name="carbon tetrachloride",
         mw=153.8227,
         Tb=349.85,
@@ -1517,7 +1517,7 @@ component_db = {
         Hvap=32386.0,
         antoine=(4.10445, 1265.632, -41.002),
     ),
-    "1,2-dichloroethane": Component(
+    "1,2-dichloroethane": component(
         name="1,2-dichloroethane",
         mw=98.9592,
         Tb=356.65,
@@ -1529,7 +1529,7 @@ component_db = {
         Hvap=35089.3,
         antoine=(4.28356, 1341.37, -43.1),
     ),
-    "1,1,1-trichloroethane": Component(
+    "1,1,1-trichloroethane": component(
         name="1,1,1-trichloroethane",
         mw=133.4042,
         Tb=347.17,
@@ -1541,7 +1541,7 @@ component_db = {
         Hvap=32297.2,
         antoine=(5.88607, 2210.179, 34.902),
     ),
-    "trichloroethylene": Component(
+    "trichloroethylene": component(
         name="trichloroethylene",
         mw=131.3883,
         Tb=359.95,
@@ -1553,7 +1553,7 @@ component_db = {
         Hvap=34985.9,
         antoine=(3.55346, 974.538, -85.811),
     ),
-    "tetrachloroethylene": Component(
+    "tetrachloroethylene": component(
         name="tetrachloroethylene",
         mw=165.8334,
         Tb=394.35,
@@ -1565,7 +1565,7 @@ component_db = {
         Hvap=39504.8,
         antoine=(4.18056, 1440.819, -49.171),
     ),
-    "chlorobenzene": Component(
+    "chlorobenzene": component(
         name="chlorobenzene",
         mw=112.5569,
         Tb=405.215,
@@ -1577,7 +1577,7 @@ component_db = {
         Hvap=41216.4,
         antoine=(4.02012, 1378.79, -61.45),
     ),
-    "o-dichlorobenzene": Component(
+    "o-dichlorobenzene": component(
         name="o-dichlorobenzene",
         mw=147.002,
         Tb=453.35,
@@ -1590,7 +1590,7 @@ component_db = {
         antoine=(4.19518, 1649.55, -59.836),
     ),
     # "bromethane": scrape failed
-    "bromoform": Component(
+    "bromoform": component(
         name="bromoform",
         mw=252.7306,
         Tb=422.35,
@@ -1602,7 +1602,7 @@ component_db = {
         Hvap=43810.7,
         antoine=(3.91541, 1363.237, -73.148),
     ),
-    "carbon tetrabromide": Component(
+    "carbon tetrabromide": component(
         name="carbon tetrabromide",
         mw=331.6267,
         Tb=462.65,
@@ -1614,7 +1614,7 @@ component_db = {
         Hvap=64758.0,
         antoine=(3.4003, 1152.616, -123.007),
     ),
-    "bromobenzene": Component(
+    "bromobenzene": component(
         name="bromobenzene",
         mw=157.0079,
         Tb=429.05,
@@ -1626,7 +1626,7 @@ component_db = {
         Hvap=44472.6,
         antoine=(4.07202, 1495.044, -61.508),
     ),
-    "iodobenzene": Component(
+    "iodobenzene": component(
         name="iodobenzene",
         mw=204.0084,
         Tb=461.65,
@@ -1638,7 +1638,7 @@ component_db = {
         Hvap=49324.7,
         antoine=(4.3712, 1803.466, -47.933),
     ),
-    "methylamine": Component(
+    "methylamine": component(
         name="methylamine",
         mw=31.0571,
         Tb=266.75,
@@ -1650,7 +1650,7 @@ component_db = {
         Hvap=23933.1,
         antoine=(4.5442, 1050.66, -35.32),
     ),
-    "dimethylamine": Component(
+    "dimethylamine": component(
         name="dimethylamine",
         mw=45.0837,
         Tb=280.45,
@@ -1662,7 +1662,7 @@ component_db = {
         Hvap=25278.1,
         antoine=(4.29371, 995.445, -47.869),
     ),
-    "trimethylamine": Component(
+    "trimethylamine": component(
         name="trimethylamine",
         mw=59.1103,
         Tb=275.95,
@@ -1674,7 +1674,7 @@ component_db = {
         Hvap=21878.5,
         antoine=(4.01613, 970.297, -34.06),
     ),
-    "ethylamine": Component(
+    "ethylamine": component(
         name="ethylamine",
         mw=45.0837,
         Tb=289.75,
@@ -1686,7 +1686,7 @@ component_db = {
         Hvap=26787.0,
         antoine=(4.434, 1102.88, -40.7),
     ),
-    "diethylamine": Component(
+    "diethylamine": component(
         name="diethylamine",
         mw=73.1368,
         Tb=328.55,
@@ -1698,7 +1698,7 @@ component_db = {
         Hvap=31203.3,
         antoine=(2.86193, 559.071, -132.974),
     ),
-    "triethylamine": Component(
+    "triethylamine": component(
         name="triethylamine",
         mw=101.19,
         Tb=361.95,
@@ -1710,7 +1710,7 @@ component_db = {
         Hvap=34608.9,
         antoine=(2.98368, 695.814, -128.271),
     ),
-    "aniline": Component(
+    "aniline": component(
         name="aniline",
         mw=93.1265,
         Tb=457.25,
@@ -1722,7 +1722,7 @@ component_db = {
         Hvap=53286.2,
         antoine=(4.4087, 1692.77, -72.71),
     ),
-    "pyridine": Component(
+    "pyridine": component(
         name="pyridine",
         mw=79.0999,
         Tb=388.35,
@@ -1734,7 +1734,7 @@ component_db = {
         Hvap=40122.3,
         antoine=(4.16749, 1373.026, -58.46),
     ),
-    "piperidine": Component(
+    "piperidine": component(
         name="piperidine",
         mw=85.1475,
         Tb=379.34,
@@ -1746,7 +1746,7 @@ component_db = {
         Hvap=38087.7,
         antoine=(3.98189, 1239.577, -67.622),
     ),
-    "morpholine": Component(
+    "morpholine": component(
         name="morpholine",
         mw=87.1204,
         Tb=401.35,
@@ -1758,7 +1758,7 @@ component_db = {
         Hvap=44719.0,
         antoine=(4.2894, 1447.651, -63.463),
     ),
-    "acetonitrile": Component(
+    "acetonitrile": component(
         name="acetonitrile",
         mw=41.0519,
         Tb=354.75,
@@ -1770,7 +1770,7 @@ component_db = {
         Hvap=33051.2,
         antoine=(4.27873, 1355.374, -37.853),
     ),
-    "propionitrile": Component(
+    "propionitrile": component(
         name="propionitrile",
         mw=55.0785,
         Tb=370.45,
@@ -1782,7 +1782,7 @@ component_db = {
         Hvap=36027.9,
         antoine=(3.61732, 1036.424, -83.76),
     ),
-    "acrylonitrile": Component(
+    "acrylonitrile": component(
         name="acrylonitrile",
         mw=53.0626,
         Tb=350.35,
@@ -1794,7 +1794,7 @@ component_db = {
         Hvap=33254.9,
         antoine=(4.06661, 1255.939, -41.853),
     ),
-    "benzonitrile": Component(
+    "benzonitrile": component(
         name="benzonitrile",
         mw=103.1213,
         Tb=464.15,
@@ -1806,7 +1806,7 @@ component_db = {
         Hvap=51084.0,
         antoine=(4.85401, 2110.572, -28.331),
     ),
-    "caprolactam": Component(
+    "caprolactam": component(
         name="caprolactam",
         mw=113.1576,
         Tb=543.95,
@@ -1818,7 +1818,7 @@ component_db = {
         Hvap=73641.2,
         antoine=(3.7484, 1576.71, -126.15),
     ),
-    "nitromethane": Component(
+    "nitromethane": component(
         name="nitromethane",
         mw=61.04,
         Tb=374.34,
@@ -1830,7 +1830,7 @@ component_db = {
         Hvap=38185.9,
         antoine=(4.1135, 1229.574, -76.221),
     ),
-    "nitrobenzene": Component(
+    "nitrobenzene": component(
         name="nitrobenzene",
         mw=123.1094,
         Tb=483.85,
@@ -1842,7 +1842,7 @@ component_db = {
         Hvap=54899.4,
         antoine=(4.21553, 1727.592, -73.438),
     ),
-    "nitroethane": Component(
+    "nitroethane": component(
         name="nitroethane",
         mw=75.0666,
         Tb=387.25,
@@ -1855,7 +1855,7 @@ component_db = {
         antoine=(1.74671, 207.774, -269.2),
     ),
     # "n-nitropropane": scrape failed
-    "o-nitrotoluene": Component(
+    "o-nitrotoluene": component(
         name="o-nitrotoluene",
         mw=137.136,
         Tb=494.05,
@@ -1867,7 +1867,7 @@ component_db = {
         Hvap=58051.2,
         antoine=(3.29307, 1130.679, -151.524),
     ),
-    "hydrogen peroxide": Component(
+    "hydrogen peroxide": component(
         name="hydrogen peroxide",
         mw=34.0147,
         Tb=423.35,
@@ -1879,7 +1879,7 @@ component_db = {
         Hvap=51542.6,
         antoine=(5.09407, 1886.76, -52.55),
     ),
-    "ammonia": Component(
+    "ammonia": component(
         name="ammonia",
         mw=17.0305,
         Tb=239.834,
@@ -1891,7 +1891,7 @@ component_db = {
         Hvap=19854.5,
         antoine=(4.4854, 926.132, -32.98),
     ),
-    "hydrazine": Component(
+    "hydrazine": component(
         name="hydrazine",
         mw=32.0452,
         Tb=386.7,
@@ -1905,7 +1905,7 @@ component_db = {
     ),
     # "hydroxylamine": scrape failed
     # "sulfuric acid": scrape failed
-    "nitric acid": Component(
+    "nitric acid": component(
         name="nitric acid",
         mw=63.0128,
         Tb=356.15,
@@ -1917,7 +1917,7 @@ component_db = {
         Hvap=46473.6,
         antoine=(4.6368, 1406.0, -52.15),
     ),
-    "hydrochloric acid": Component(
+    "hydrochloric acid": component(
         name="hydrochloric acid",
         mw=36.4609,
         Tb=188.173,
@@ -1930,7 +1930,7 @@ component_db = {
         antoine=(4.2949, 745.78, -14.27),
     ),
     # "phosphoric acid": scrape failed
-    "acetic anhydride": Component(
+    "acetic anhydride": component(
         name="acetic anhydride",
         mw=102.0886,
         Tb=412.65,
@@ -1942,7 +1942,7 @@ component_db = {
         Hvap=48491.9,
         antoine=(4.24655, 1427.77, -75.113),
     ),
-    "carbon disulfide": Component(
+    "carbon disulfide": component(
         name="carbon disulfide",
         mw=76.1407,
         Tb=319.35,
@@ -1954,7 +1954,7 @@ component_db = {
         Hvap=27722.7,
         antoine=(4.06683, 1168.62, -31.616),
     ),
-    "dimethyl sulfoxide": Component(
+    "dimethyl sulfoxide": component(
         name="dimethyl sulfoxide",
         mw=78.1334,
         Tb=465.05,
@@ -1966,7 +1966,7 @@ component_db = {
         Hvap=53477.2,
         antoine=(4.49107, 1807.002, -60.995),
     ),
-    "dimethyl sulfide": Component(
+    "dimethyl sulfide": component(
         name="dimethyl sulfide",
         mw=62.134,
         Tb=310.47,
@@ -1978,7 +1978,7 @@ component_db = {
         Hvap=27805.3,
         antoine=(4.07369, 1090.755, -42.351),
     ),
-    "diethyl sulfide": Component(
+    "diethyl sulfide": component(
         name="diethyl sulfide",
         mw=90.1872,
         Tb=365.25,
@@ -1990,7 +1990,7 @@ component_db = {
         Hvap=35626.5,
         antoine=(4.05326, 1257.833, -54.488),
     ),
-    "thiophene": Component(
+    "thiophene": component(
         name="thiophene",
         mw=84.1396,
         Tb=357.25,
@@ -2002,7 +2002,7 @@ component_db = {
         Hvap=34650.7,
         antoine=(4.08416, 1246.02, -51.8),
     ),
-    "hydrogen sulfide": Component(
+    "hydrogen sulfide": component(
         name="hydrogen sulfide",
         mw=34.0809,
         Tb=212.855,
@@ -2014,7 +2014,7 @@ component_db = {
         Hvap=14169.8,
         antoine=(4.22882, 806.933, -21.76),
     ),
-    "sulfur dioxide": Component(
+    "sulfur dioxide": component(
         name="sulfur dioxide",
         mw=64.0638,
         Tb=263.137,
@@ -2026,7 +2026,7 @@ component_db = {
         Hvap=22830.3,
         antoine=(4.4072, 999.9, -35.96),
     ),
-    "argon": Component(
+    "argon": component(
         name="argon",
         mw=39.948,
         Tb=87.302,
@@ -2038,7 +2038,7 @@ component_db = {
         Hvap=257.2,
         antoine=(3.74141, 304.227, -5.83),
     ),
-    "helium": Component(
+    "helium": component(
         name="helium",
         mw=4.0026,
         Tb=4.224,
@@ -2050,7 +2050,7 @@ component_db = {
         Hvap=0.3,
         antoine=(1.6836, 8.1548, 0.56),
     ),
-    "chlorine": Component(
+    "chlorine": component(
         name="chlorine",
         mw=70.906,
         Tb=239.198,
@@ -2062,7 +2062,7 @@ component_db = {
         Hvap=17580.0,
         antoine=(4.0628, 861.34, -26.82),
     ),
-    "methyl chloride": Component(
+    "methyl chloride": component(
         name="methyl chloride",
         mw=50.4875,
         Tb=249.173,
@@ -2074,7 +2074,7 @@ component_db = {
         Hvap=18875.2,
         antoine=(4.16533, 920.86, -27.57),
     ),
-    "ethyl chloride": Component(
+    "ethyl chloride": component(
         name="ethyl chloride",
         mw=64.5141,
         Tb=285.45,
@@ -2086,7 +2086,7 @@ component_db = {
         Hvap=24076.1,
         antoine=(4.09088, 1020.63, -35.58),
     ),
-    "allyl chloride": Component(
+    "allyl chloride": component(
         name="allyl chloride",
         mw=76.5248,
         Tb=317.95,
@@ -2098,7 +2098,7 @@ component_db = {
         Hvap=25979.5,
         antoine=(2.24083, 365.121, -154.919),
     ),
-    "epichlorohydrin": Component(
+    "epichlorohydrin": component(
         name="epichlorohydrin",
         mw=92.5242,
         Tb=391.05,
@@ -2110,7 +2110,7 @@ component_db = {
         Hvap=38648.9,
         antoine=(4.66829, 1642.508, -38.8),
     ),
-    "vinylidene chloride": Component(
+    "vinylidene chloride": component(
         name="vinylidene chloride",
         mw=96.9433,
         Tb=304.75,
@@ -2122,7 +2122,7 @@ component_db = {
         Hvap=26505.4,
         antoine=(4.1078, 1104.726, -35.403),
     ),
-    "dimethylformamide": Component(
+    "dimethylformamide": component(
         name="dimethylformamide",
         mw=73.0938,
         Tb=425.95,
@@ -2134,7 +2134,7 @@ component_db = {
         Hvap=46889.9,
         antoine=(3.93068, 1337.716, -82.648),
     ),
-    "dimethylacetamide": Component(
+    "dimethylacetamide": component(
         name="dimethylacetamide",
         mw=87.1204,
         Tb=439.05,
@@ -2146,7 +2146,7 @@ component_db = {
         Hvap=47738.6,
         antoine=(6.09451, 2725.96, 28.209),
     ),
-    "n-methyl-2-pyrrolidone": Component(
+    "n-methyl-2-pyrrolidone": component(
         name="n-methyl-2-pyrrolidone",
         mw=99.1311,
         Tb=477.35,
@@ -2158,7 +2158,7 @@ component_db = {
         Hvap=55142.3,
         antoine=(4.18001, 1655.29, -80.355),
     ),
-    "acetamide": Component(
+    "acetamide": component(
         name="acetamide",
         mw=59.0672,
         Tb=495.15,
@@ -2171,7 +2171,7 @@ component_db = {
         antoine=(5.3711, 2413.323, -45.444),
     ),
     # "urea": scrape failed
-    "ethylene diamine": Component(
+    "ethylene diamine": component(
         name="ethylene diamine",
         mw=60.0983,
         Tb=390.05,
@@ -2183,7 +2183,7 @@ component_db = {
         Hvap=45195.5,
         antoine=(4.22368, 1302.256, -81.788),
     ),
-    "hexamethylenediamine": Component(
+    "hexamethylenediamine": component(
         name="hexamethylenediamine",
         mw=116.2046,
         Tb=470.15,
@@ -2195,7 +2195,7 @@ component_db = {
         Hvap=67566.9,
         antoine=(4.96585, 2190.149, -31.035),
     ),
-    "monoethanolamine": Component(
+    "monoethanolamine": component(
         name="monoethanolamine",
         mw=61.0831,
         Tb=443.564,
@@ -2207,7 +2207,7 @@ component_db = {
         Hvap=61554.5,
         antoine=(4.29252, 1408.873, -116.093),
     ),
-    "diethanolamine": Component(
+    "diethanolamine": component(
         name="diethanolamine",
         mw=105.1356,
         Tb=541.234,
@@ -2219,7 +2219,7 @@ component_db = {
         Hvap=84040.1,
         antoine=(5.26458, 2328.56, -98.751),
     ),
-    "triethanolamine": Component(
+    "triethanolamine": component(
         name="triethanolamine",
         mw=149.1882,
         Tb=623.15,
@@ -2231,7 +2231,7 @@ component_db = {
         Hvap=117812.8,
         antoine=(7.19251, 4543.902, 24.749),
     ),
-    "maleic anhydride": Component(
+    "maleic anhydride": component(
         name="maleic anhydride",
         mw=98.0569,
         Tb=475.15,
@@ -2243,7 +2243,7 @@ component_db = {
         Hvap=57653.9,
         antoine=(3.79916, 1431.009, -101.093),
     ),
-    "phthalic anhydride": Component(
+    "phthalic anhydride": component(
         name="phthalic anhydride",
         mw=148.1156,
         Tb=558.45,
@@ -2255,7 +2255,7 @@ component_db = {
         Hvap=63649.7,
         antoine=(3.10762, 1249.606, -159.288),
     ),
-    "succinic anhydride": Component(
+    "succinic anhydride": component(
         name="succinic anhydride",
         mw=100.0728,
         Tb=534.15,
@@ -2267,7 +2267,7 @@ component_db = {
         Hvap=78657.6,
         antoine=(3.65221, 1433.874, -144.107),
     ),
-    "propionic anhydride": Component(
+    "propionic anhydride": component(
         name="propionic anhydride",
         mw=130.1418,
         Tb=441.15,
@@ -2279,7 +2279,7 @@ component_db = {
         Hvap=51924.4,
         antoine=(3.23076, 949.198, -145.898),
     ),
-    "butyric anhydride": Component(
+    "butyric anhydride": component(
         name="butyric anhydride",
         mw=158.195,
         Tb=468.15,
@@ -2291,7 +2291,7 @@ component_db = {
         Hvap=62341.5,
         antoine=(4.84642, 2070.33, -42.704),
     ),
-    "phenol": Component(
+    "phenol": component(
         name="phenol",
         mw=94.1112,
         Tb=454.95,
@@ -2304,7 +2304,7 @@ component_db = {
         antoine=(4.2696, 1523.42, -97.75),
     ),
     # "cresol": scrape failed
-    "resorcinol": Component(
+    "resorcinol": component(
         name="resorcinol",
         mw=110.1106,
         Tb=553.15,
@@ -2316,7 +2316,7 @@ component_db = {
         Hvap=91846.2,
         antoine=(5.52248, 2687.152, -62.164),
     ),
-    "catechol": Component(
+    "catechol": component(
         name="catechol",
         mw=110.1106,
         Tb=519.15,
@@ -2328,7 +2328,7 @@ component_db = {
         Hvap=71756.9,
         antoine=(5.5033, 2713.153, -23.96),
     ),
-    "bisphenol a": Component(
+    "bisphenol a": component(
         name="bisphenol a",
         mw=228.2863,
         Tb=633.65,
@@ -2340,7 +2340,7 @@ component_db = {
         Hvap=122148.4,
         antoine=(7.59699, 4619.1978, -25.179),
     ),
-    "diphenylamine": Component(
+    "diphenylamine": component(
         name="diphenylamine",
         mw=169.2224,
         Tb=578.25,
@@ -2352,7 +2352,7 @@ component_db = {
         Hvap=70793.1,
         antoine=(5.09811, 2729.385, -39.207),
     ),
-    "n-methylaniline": Component(
+    "n-methylaniline": component(
         name="n-methylaniline",
         mw=107.1531,
         Tb=470.15,
@@ -2364,7 +2364,7 @@ component_db = {
         Hvap=53647.0,
         antoine=(4.99409, 2226.576, -22.456),
     ),
-    "toluidine": Component(
+    "toluidine": component(
         name="toluidine",
         mw=107.1531,
         Tb=473.15,
@@ -2376,7 +2376,7 @@ component_db = {
         Hvap=57392.8,
         antoine=(4.19168, 1617.232, -87.126),
     ),
-    "naphthylamine": Component(
+    "naphthylamine": component(
         name="naphthylamine",
         mw=143.1852,
         Tb=573.85,
@@ -2388,7 +2388,7 @@ component_db = {
         Hvap=65778.3,
         antoine=(5.00643, 2685.958, -36.72),
     ),
-    "methyl methacrylate": Component(
+    "methyl methacrylate": component(
         name="methyl methacrylate",
         mw=100.1158,
         Tb=373.75,
@@ -2400,7 +2400,7 @@ component_db = {
         Hvap=39131.1,
         antoine=(5.37785, 1945.56, -7.569),
     ),
-    "ethyl methacrylate": Component(
+    "ethyl methacrylate": component(
         name="ethyl methacrylate",
         mw=114.1424,
         Tb=389.15,
@@ -2412,7 +2412,7 @@ component_db = {
         Hvap=39321.1,
         antoine=(5.13708, 2003.03, 0.0),
     ),
-    "butyl methacrylate": Component(
+    "butyl methacrylate": component(
         name="butyl methacrylate",
         mw=142.1956,
         Tb=436.85,
@@ -2425,7 +2425,7 @@ component_db = {
         antoine=(4.19158, 1507.618, -76.025),
     ),
     # "hydroxyethyl methacrylate": scrape failed
-    "isoprene": Component(
+    "isoprene": component(
         name="isoprene",
         mw=68.117,
         Tb=307.15,
@@ -2437,7 +2437,7 @@ component_db = {
         Hvap=24657.8,
         antoine=(4.08822, 1108.151, -35.731),
     ),
-    "butadiene": Component(
+    "butadiene": component(
         name="butadiene",
         mw=54.0904,
         Tb=268.661,
@@ -2449,7 +2449,7 @@ component_db = {
         Hvap=20851.6,
         antoine=(3.9664, 927.21, -34.52),
     ),
-    "chloroprene": Component(
+    "chloroprene": component(
         name="chloroprene",
         mw=88.5355,
         Tb=332.15,
@@ -2461,7 +2461,7 @@ component_db = {
         Hvap=28912.4,
         antoine=(3.41541, 841.921, -85.364),
     ),
-    "cyclopentadiene": Component(
+    "cyclopentadiene": component(
         name="cyclopentadiene",
         mw=66.1011,
         Tb=314.15,
