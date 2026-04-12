@@ -1,5 +1,16 @@
+#UNITS
+#FOR NOW
+#Pressure: bar
+#Temperature: degC
+#Flow = kg/hr
+#Density = kg/m^3
+
+
+
+thermo_model = "PR"
+
 class component:
-    def __init__(self, name, mw, Tb, Tc, Pc, omega, antoine, Cp_liq, Cp_vap, Hvap):
+    def __init__(self, name, mw, Tb, Tc, Pc, omega, antoine, Cp_liq, Cp_vap, density_liq, density_vap, Hvap):
         self.name = name
         self.mw = mw
         self.Tb = Tb
@@ -9,15 +20,20 @@ class component:
         self.antoine = antoine
         self.Cp_liq = Cp_liq
         self.Cp_vap = Cp_vap
+        self.density_liq = density_liq
+        self.density_vap = density_vap
         self.Hvap = Hvap
+        
 
 class stream:
-    def __init__(self, name, flow, z, T, P, phase=None, v_frac=None):
+    def __init__(self, name, flow, z, T, P, density_liq=None, density_vap=None, phase=None, v_frac=None):
         self.name = name
         self.flow = flow
         self.z = z
         self.T = T
         self.P = P
+        self.density_liq = density_liq
+        self.density_vap = density_vap
         self.phase = phase
         self.v_frac = v_frac
     def validate(self):
@@ -31,13 +47,27 @@ class stream:
             raise ValueError(f"Stream pressure cannot be negative")
         if self.flow is not None and self.flow < 0:
             raise ValueError(f"Stream flow cannot be negative")
+    def calculate_properties(self):
+        from thermo import Mixture
+        components = list(self.z.keys())
+        fracs = list(self.z.values())
+
+        #create mixtute with stream components and fractions, convert bar to Pa
+        mix = Mixture(components, fracs, T=self.T, P=self.P * 1e5)
+        self.phase = mix.phase
+        self.v_frac = mix.V_frac
+        self.density_liq = mix.rhol #kg/m3
+        self.density_vap = mix.rhog #kg/m3
+        self.Mw = mix.MW #kg/kmol
+        self.x = mix.xs #liquid mole fractions
+        self.y = mix.ys #vapor mole fractions
     def summary(self):
         print(f"Stream: {self.name}")
         print(f"  Temperature:  {self.T:.1f} K  ({self.T - 273.15:.1f} °C)")
         print(f"  Pressure:     {self.P:.3f} bar")
-        print(f"  Flow:         {self.flow:.2f} kmol/hr")
+        print(f"  Flow:         {self.flow:.2f} kg/hr")
         print()
-        print(f"  {'Component':<20} {'Mol Frac':>10}    {'Flow (kmol/hr)':>15}")
+        print(f"  {'Component':<20} {'Mass Frac':>10}    {'Flow (kg/hr)':>15}")
         print(f"  {'-'*20} {'-'*10}    {'-'*15}")
         for comp, frac in self.z.items():
             comp_flow = self.flow * frac
@@ -78,19 +108,26 @@ class heat_exchanger:
         print()
 
 class pump:
-    def __init__(self, name, feed, P_out, efficiency):
+    def __init__(self, name, feed, outlet_stream, P_out=None, efficiency=None, power=None):
         self.name = name
         self.feed = feed
-        self.P_out = P_out
+        self.outlet_stream = outlet_stream
         self.efficiency = efficiency
-        self.outlet_stream = None
+        self.power = power
     def validate(self):
-        if self.P_out is not None and self.feed.P is not None and self.P_out < self.feed.P:
+        if self.P_out is not None and self.outlet_stream.P is not None and self.P_out < self.outlet_stream.P:
             raise ValueError("Outlet pressure cannot be less than inlet pressure")
     def calculate(self):
-        #phase assumptions here are not necessarily correct, but it is a good place to start
-        #calculate power? keep simple for now
-        self.outlet_stream = stream(name=f'{self.name}_out', flow=self.feed.flow, z=self.feed.z, T=self.feed.T, P=self.P_out, phase=self.feed.phase, v_frac=self.feed.v_frac)
+        #assume 80% efficiency if user does not specify efficiency
+        if self.efficiency is None:
+            self.efficiency = 0.8
+        if self.feed.phase == "liquid":
+            #pressure in bar so convert to Pa (100000)
+            #flow in kg/hr so convert to kg/s (3600)
+            self.power = self.feed.flow / 3600 * (self.outlet_stream.P - self.feed.P) * 100000 * (self.feed.density_liq / 1000) / (self.feed.density_liq * 1000 * (self.efficiency))
+        elif self.feed.phase == "vapor":
+            self.power = self.feed.flow * self.feed.density_vap * (self.outlet_stream.P - self.feed.P)
+        self.outlet_stream.P = self.feed.P + (self.power / (self.feed.flow * self.feed.density_liq))
     def summary(self):
         print(f"Pump: {self.name}")
         print(f"  Feed: {self.feed.name}")

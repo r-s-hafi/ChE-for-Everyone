@@ -121,7 +121,10 @@ def scrape(name: str) -> dict | None:
         MW = c.MW
         Cp_liq = round(c.Cpl * MW / 1000, 2) if c.Cpl else None
         Cp_vap = round(c.Cpg * MW / 1000, 2) if c.Cpg else None
+        density_liq = round(c.rhol, 2) if c.rhol else None   # kg/m³
+        density_vap = round(c.rhog, 2) if c.rhog else None   # kg/m³
 
+        
         # Light gases may not have Hvap at 298K — evaluate at Tb instead
         if c.Hvap:
             Hvap = round(c.Hvap * MW / 1000, 1)
@@ -146,6 +149,8 @@ def scrape(name: str) -> dict | None:
             "Cp_vap":  Cp_vap,
             "Hvap":    Hvap,
             "antoine": antoine,
+            "density_liq": density_liq,
+            "density_vap": density_vap,
         }
 
         missing = [k for k, v in data.items() if v is None]
@@ -174,7 +179,7 @@ def write_db(results: dict):
         'Tb, Tc:   K',
         '"""',
         '',
-        'from simulator import Component',
+        'from models import component',
         '',
         'component_db = {',
     ]
@@ -183,9 +188,9 @@ def write_db(results: dict):
         if d is None:
             lines.append(f'    # "{name}": scrape failed')
             continue
-        lines.append(f'    "{name}": Component(')
+        lines.append(f'    "{name}": component(')
         lines.append(f'        name="{name}",')
-        for key in ["mw", "Tb", "Tc", "Pc", "omega", "Cp_liq", "Cp_vap", "Hvap", "antoine"]:
+        for key in ["mw", "Tb", "Tc", "Pc", "omega", "Cp_liq", "Cp_vap", "Hvap", "antoine", "density_liq", "density_vap"]:
             lines.append(f'        {key}={d[key]},')
         lines.append('    ),')
 
