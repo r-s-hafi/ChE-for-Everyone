@@ -1,6 +1,7 @@
 # test_simulator.py
 import pytest
-from models import stream, heat_exchanger, pump
+from models import stream
+from unit_ops import heat_exchanger, pump
 
 def test_pump_water_1_to_5_bar():
     feed = stream(
