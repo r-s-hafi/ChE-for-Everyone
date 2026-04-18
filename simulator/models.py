@@ -44,9 +44,11 @@ class stream:
         self.density_vap = density_vap
         self.phase = phase
 
+        self.validate()
         self.calculate_properties()
 
     def validate(self):
+        
         if abs(sum(self.z.values()) - 1) > 1e-6:
             raise ValueError(f"Component {self.name} has a sum of z values that is not 1")
         if any(z < 0 for z in self.z.values()):
@@ -59,7 +61,7 @@ class stream:
             raise ValueError(f"Stream flow cannot be negative")
 
     def calculate_properties(self):
-        self.validate()
+
         from components import component_db
         from thermo import Mixture
         components = list(self.z.keys())
@@ -120,15 +122,11 @@ class heat_exchanger:
             raise ValueError("Cannot specify both T_out and Q for a heat exchanger")
         if self.T_out is None and self.Q is None:
             raise ValueError("Must specify either T_out or Q for a heat exchanger")
-        if self.feed.phase == "l":
-            Cp_mix = sum(self.feed.z[comp] * component_db[comp].Cp_liq for comp in self.feed.z)
-        if self.feed.phase == "g":
-            Cp_mix = sum(self.feed.z[comp] * component_db[comp].Cp_vap for comp in self.feed.z)
 
         if self.T_out is not None:
-            self.Q = self.feed.molar_flow * Cp_mix * (self.T_out - self.feed.T)
+            self.Q = self.feed.molar_flow * self.feed.Cp_molar * (self.T_out - self.feed.T)
         elif self.Q is not None:
-            self.T_out = self.feed.T + (self.Q / (self.feed.flow * Cp_mix))
+            self.T_out = self.feed.T + (self.Q / (self.feed.molar_flow * self.feed.Cp_molar))
         
         #phase assumptions here are not necessarily correct, but it is a good place to start
         self.outlet_stream = stream(name=f'{self.name}_out', flow=self.feed.flow, z=self.feed.z, T=self.T_out, P=self.feed.P, phase=self.feed.phase, v_frac=self.feed.v_frac)
@@ -157,15 +155,13 @@ class pump:
             raise ValueError("Must specify either P_out or power for a pump")
         if self.feed.phase == "g":
             raise ValueError("Pump cannot be used for vapor phase")
-        if self.feed.phase == "l/g":
-            raise ValueError("Pump can only be used for vapor/liquid mixtures")
         if self.feed.phase != "l":
             raise ValueError("Pump can only be used for liquid phase")
         if self.P_out is not None and self.P_out < self.feed.P:
             raise ValueError("Outlet pressure cannot be less than inlet pressure")
         if self.power is not None and self.power < 0:
             raise ValueError("Power cannot be negative")
-        if self.efficiency is not None and self.efficiency < 0 or self.efficiency > 1:
+        if self.efficiency is not None and (self.efficiency < 0 or self.efficiency > 1):
             raise ValueError("Efficiency must be between 0 and 1")
 
     def calculate(self):
