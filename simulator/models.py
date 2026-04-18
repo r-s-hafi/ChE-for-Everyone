@@ -5,6 +5,7 @@
 #Flow = kg/hr
 #Density = kg/m^3
 #Cp = kJ/kmol/K
+#z = mass fraction
 
 
 
@@ -42,6 +43,8 @@ class stream:
         self.density_liq = density_liq
         self.density_vap = density_vap
         self.phase = phase
+
+        self.calculate_properties()
 
     def validate(self):
         if abs(sum(self.z.values()) - 1) > 1e-6:
@@ -142,10 +145,9 @@ class heat_exchanger:
 
 class pump:
 
-    def __init__(self, name, feed, outlet_stream=None, P_out=None, efficiency=None, power=None):
+    def __init__(self, name, feed, P_out=None, efficiency=None, power=None):
         self.name = name
         self.feed = feed
-        self.outlet_stream = outlet_stream
         self.P_out = P_out
         self.efficiency = efficiency
         self.power = power
