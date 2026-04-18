@@ -33,16 +33,13 @@ class component:
         
 
 class stream:
-    def __init__(self, name, flow, z, T, P, density_liq=None, density_vap=None, phase=None, v_frac=None, Cp_molar=None, molar_flow=None):
+    def __init__(self, name, flow, z, T, P):
 
         self.name = name
         self.flow = flow
         self.z = z
         self.T = T
         self.P = P
-        self.density_liq = density_liq
-        self.density_vap = density_vap
-        self.phase = phase
 
         self.validate()
         self.calculate_properties()
@@ -116,8 +113,6 @@ class heat_exchanger:
 
     def calculate(self):
 
-        from components import component_db
-
         if self.T_out is not None and self.Q is not None:
             raise ValueError("Cannot specify both T_out and Q for a heat exchanger")
         if self.T_out is None and self.Q is None:
@@ -129,7 +124,7 @@ class heat_exchanger:
             self.T_out = self.feed.T + (self.Q / (self.feed.molar_flow * self.feed.Cp_molar))
         
         #phase assumptions here are not necessarily correct, but it is a good place to start
-        self.outlet_stream = stream(name=f'{self.name}_out', flow=self.feed.flow, z=self.feed.z, T=self.T_out, P=self.feed.P, phase=self.feed.phase, v_frac=self.feed.v_frac)
+        self.outlet_stream = stream(name=f'{self.name}_out', flow=self.feed.flow, z=self.feed.z, T=self.T_out, P=self.feed.P)
 
     def summary(self):
 
@@ -169,19 +164,18 @@ class pump:
         #assume 80% efficiency if user does not specify efficiency
         if self.efficiency is None:
             self.efficiency = 0.8
-        if self.feed.phase == "l":
             
-            mass_flow = self.feed.flow / 3600 #kg/s
-            density = self.feed.density_liq #kg/m3
+        mass_flow = self.feed.flow / 3600 #kg/s
+        density = self.feed.density_liq #kg/m3
 
-            if self.P_out is not None: #p_out is specified
-                dP = (self.P_out - self.feed.P) * 1e5 #Pa
-                W_ideal = mass_flow * dP / density #W
-                self.power = W_ideal / self.efficiency #W
-            else: #power is specified
-                W_ideal = self.power * self.efficiency #W
-                dP = W_ideal * density / mass_flow #Pa
-                self.P_out = self.feed.P + (dP / 1e5) #bar
+        if self.P_out is not None: #p_out is specified
+            dP = (self.P_out - self.feed.P) * 1e5 #Pa
+            W_ideal = mass_flow * dP / density #W
+            self.power = W_ideal / self.efficiency #W
+        else: #power is specified
+            W_ideal = self.power * self.efficiency #W
+            dP = W_ideal * density / mass_flow #Pa
+            self.P_out = self.feed.P + (dP / 1e5) #bar
         
         self.outlet_stream = stream(
             name=f'{self.name}_out',
@@ -190,8 +184,6 @@ class pump:
             T=self.feed.T,
             P=self.P_out,
         )
-
-        self.outlet_stream.calculate_properties()
 
     def summary(self):
 
@@ -240,8 +232,7 @@ if __name__ == "__main__":
         flow=100,
         z={"benzene": 0.6, "toluene": 0.4},
         T=300,
-        P=1.5,
-        phase="l"
+        P=1.5
     )
 
     hex1 = heat_exchanger(
