@@ -7,3 +7,7 @@ dist/
 
 # Machine-specific local tooling config
 .claude/
+
+# Impeccable ships a 15MB per-platform binary. The tool provides it per machine,
+# and its hooks no-op when the script isn't there, so it stays out of history.
+.github/skills/impeccable/scripts/bin/
