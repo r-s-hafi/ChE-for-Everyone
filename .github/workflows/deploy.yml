@@ -1,0 +1,50 @@
+# Builds the static site and publishes it to GitHub Pages.
+#
+# Before the first run:
+#   1. Push this repo to GitHub.
+#   2. Settings -> Pages -> Source: "GitHub Actions".
+#   3. Set `site` in astro.config.mjs (via SITE.origin) to the published URL.
+#      If you serve from a project subpath, also set `base` in astro.config.mjs.
+#
+# Any host that runs `npm run build` and serves `dist/` works the same way -
+# Netlify and Cloudflare Pages both detect Astro with no config.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

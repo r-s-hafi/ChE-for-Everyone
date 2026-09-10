@@ -1,0 +1,48 @@
+---
+import { SITE } from '../site.config';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Path only, e.g. "/equipment/pumps". Used for the canonical URL. */
+  path?: string;
+}
+
+const { title, description = SITE.description, path } = Astro.props;
+const canonical = new URL(path ?? Astro.url.pathname, Astro.site ?? SITE.origin);
+const fullTitle = title === SITE.name ? title : `${title} — ${SITE.name}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to the words</a>
+    <header class="site-header">
+      <a class="site-name" href="/">{SITE.name}</a>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>Written by one process engineer. Corrections welcome.</p>
+    </footer>
+  </body>
+</html>
