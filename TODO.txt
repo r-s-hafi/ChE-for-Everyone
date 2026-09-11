@@ -1,0 +1,7 @@
+Currently assumes Cp is constant, untrue. Will need to integrate.
+
+Handle VLE streams
+
+Add validation to the HEX
+
+Need to add temp rise for inefficiency in pump class
