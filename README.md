@@ -106,9 +106,19 @@ assets/
   favicon.svg
 content/literature/     [reserved]
 modules/                [reserved]           one folder per interactive module
-simulator/              [reserved]           Python simulation code, not here yet
+simulator/                                   Python simulation code, independent of the site
 docs/pds.md                                  the build brief
+TODO.txt                                     simulator gaps
+instruct.md                                  simulator refactor notes
 ```
+
+## Branches
+
+`dev` is where work happens. `main` is what GitHub Pages publishes. Merge `dev` into `main` when you want the site to go live, rather than pushing straight to `main`.
+
+The two branches used to be unrelated histories — the site and the simulator were effectively separate repos sharing one remote — and were merged into a single tree on 2026-09-11.
+
+`simulator/` is deliberately uncoupled from the website. Nothing in the site imports it and nothing in it knows the site exists.
 
 GitHub Pages serves `equipment/pumps.html` at `/equipment/pumps`, so the clean routes in [docs/pds.md](docs/pds.md) section 8 come free from naming files sensibly.
 

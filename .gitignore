@@ -1,4 +1,12 @@
-# There's no build output and no dependencies, so this only covers OS clutter.
+# The site has no build output and no dependencies, so this covers OS clutter
+# and the Python artifacts from simulator/.
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/

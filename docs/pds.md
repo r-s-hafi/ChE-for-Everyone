@@ -49,7 +49,7 @@ Reserved directories get a `.gitkeep` and a one-line README saying what goes the
 
 Delete the stray `self.v_frac` file in the repo root.
 
-> **Build note, 2026-09-11.** Built with no generator, so the `content/` and `site/` split has nothing to describe — the HTML files are both, and they live at the repo root because that's what GitHub Pages serves. The reserved directories above exist as specified. `simulator/` is a slot here; the Python code lives in another repo. There was no `self.v_frac` file to delete. See `README.md`.
+> **Build note, 2026-09-11.** Built with no generator, so the `content/` and `site/` split has nothing to describe — the HTML files are both, and they live at the repo root because that's what GitHub Pages serves. The reserved directories above exist as specified. `simulator/` holds the real Python code: it and the site were unrelated histories sharing one remote, and were merged into this single tree. `self.v_frac` was an empty file on the old `dev` branch and is now deleted. See `README.md`.
 
 ---
 
