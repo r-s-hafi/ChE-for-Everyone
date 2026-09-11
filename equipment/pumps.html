@@ -1,0 +1,584 @@
+<!doctype html>
+<!-- status: complete | confidence: high | reviewed_by: (none yet) | updated: 2026-09-11 -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>Pumps — ChE for Everyone</title>
+    <meta
+      name="description"
+      content="The pump curve, deadhead, BEP, NPSH and cavitation, and what sets the pressure ceiling. The one fluids topic to know before a technical interview."
+    />
+    <link rel="canonical" href="https://r-s-hafi.github.io/ChE-for-Everyone/equipment/pumps" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="ChE for Everyone" />
+    <meta property="og:title" content="Pumps" />
+    <meta
+      property="og:description"
+      content="The pump curve, deadhead, BEP, NPSH and cavitation, and what sets the pressure ceiling."
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to the words</a>
+
+    <header class="site-header">
+      <a class="site-name" href="../index.html">ChE for Everyone</a>
+      <nav class="site-nav" aria-label="Sections">
+        <a href="../equipment/index.html">Equipment</a>
+        <a href="../concepts/index.html">Concepts</a>
+        <a href="../cram.html">Cram</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <h1>Pumps</h1>
+      <p class="summary">
+        The pump curve, NPSH, and what sets the pressure ceiling. If you only have time for one
+        fluids topic before an interview, make it this one.
+      </p>
+      <p class="topic-meta">Last updated <time datetime="2026-09-11">September 11, 2026</time></p>
+
+      <h2 id="why-care">
+        I got asked this and completely blanked<a class="anchor" href="#why-care" aria-label="Link to this section">#</a>
+      </h2>
+
+      <p>
+        In a technical interview I had out of college, a senior principal engineer was walking me
+        through a project on my resume and then kind of organically turned it into a troubleshooting
+        question. We ended up on pump curves, and he asked me where the deadhead point was.
+      </p>
+
+      <p>I had no idea. I told him I didn't know.</p>
+
+      <p>
+        To say the least, it was pretty embarrassing. And what stuck with me is that literally
+        everyone on that plant would call that a basic question, and after a 4.0 GPA through four
+        years of chemical engineering, it had never been brought to my attention.
+      </p>
+
+      <h2 id="school-vs-reality">
+        What school gave me vs. what I actually needed<a
+          class="anchor"
+          href="#school-vs-reality"
+          aria-label="Link to this section"
+          >#</a
+        >
+      </h2>
+
+      <p>
+        My fluids class was almost entirely theoretical. Pulling friction loss coefficients off
+        charts and correlations, and five lectures deriving Navier-Stokes. We had one lecture on pump
+        curves. One.
+      </p>
+
+      <p>
+        I have never derived Navier-Stokes at work. I deal with pumps every single day, because you
+        can't have a plant without them (nothing moves anywhere unless something is pressurizing
+        it). So the pump curve isn't some footnote at the end of the chapter, it's a real thing that
+        you need to know to be an effective process engineer.
+      </p>
+
+      <p>
+        If you're cramming for a technical interview and only have time for one fluids topic, make it
+        this one.
+      </p>
+
+      <h2 id="what-it-does">
+        What a pump actually does<a class="anchor" href="#what-it-does" aria-label="Link to this section">#</a>
+      </h2>
+
+      <p>
+        A pump pressurizes liquid. That's the entire mental model. If you can't pressurize it, you
+        can't move it.
+      </p>
+
+      <p>There are two main types you need to know:</p>
+
+      <p>
+        <strong>Centrifugal.</strong> A spinning impeller throws liquid outward and that velocity
+        turns into pressure. Most pumps you&rsquo;ll run into will be centrifugal.
+      </p>
+
+      <p>
+        <strong>Positive displacement (PD).</strong> A fixed volume of liquid gets trapped and
+        physically pushed forward every cycle. Gear pumps, screw pumps, diaphragm pumps,
+        reciprocating pumps.
+      </p>
+
+      <p>The type of pump dictates everything about how you approach them.</p>
+
+      <h2 id="what-matters">
+        The stuff that actually matters<a class="anchor" href="#what-matters" aria-label="Link to this section">#</a>
+      </h2>
+
+      <h3 id="pump-curve">
+        The pump curve<a class="anchor" href="#pump-curve" aria-label="Link to this section">#</a>
+      </h3>
+
+      <p>
+        A centrifugal pump curve is a graph of differential pressure (often called differential head)
+        vs. flow, and head drops as flow goes up. There are three key spots on the curve:
+      </p>
+
+      <p>
+        <strong>Shutoff head (or deadhead)</strong> is the far left of the curve, at zero flow. This
+        is where your pump would run with the discharge fully blocked in. That's the most pressure a
+        centrifugal pump can physically make.
+      </p>
+
+      <p>
+        <strong>Runout</strong> is on the far right. This is where the pump is at max flow and
+        minimum head.
+      </p>
+
+      <p>
+        <strong>BEP (best efficiency point)</strong> is somewhere in the middle where the pump
+        functions best.
+      </p>
+
+      <p>
+        When something goes wrong with a pump, "where are we on the curve" is basically always the
+        first question.
+      </p>
+
+      <h3 id="running-off-curve">
+        "Running off its curve" means the pump is unhappy<a
+          class="anchor"
+          href="#running-off-curve"
+          aria-label="Link to this section"
+          >#</a
+        >
+      </h3>
+
+      <p>
+        If a pump isn't performing where the curve says it should for the conditions you're at, that
+        means the pump has degraded somehow. Worn impeller, worn wear rings, damaged internals. The
+        curve is the manufacturer telling you what a healthy pump does, so falling short of it is
+        evidence something isn't healthy anymore.
+      </p>
+
+      <h3 id="throttling-the-discharge">
+        Throttling the discharge<a
+          class="anchor"
+          href="#throttling-the-discharge"
+          aria-label="Link to this section"
+          >#</a
+        >
+      </h3>
+
+      <p>
+        If you close the discharge valve partway, you&rsquo;re adding resistance to the system. Flow
+        goes down, discharge pressure goes up, and you move left along the curve toward deadhead.
+      </p>
+
+      <p>
+        Be able to say that out loud, because it's an easy interview setup. They'll describe a valve
+        position changing and ask what happens.
+      </p>
+
+      <h3 id="near-bep">
+        Why you want to be near BEP<a class="anchor" href="#near-bep" aria-label="Link to this section">#</a>
+      </h3>
+
+      <p>
+        Everyone can repeat "stay near BEP" without knowing why, so knowing the actual reason is a
+        cheap way to sound like you've been around this stuff. The short version is:
+      </p>
+
+      <p>
+        <strong>The casing stops matching the flow.</strong> The impeller spins inside a casing that
+        isn't a circle, it's a spiral that widens as it wraps toward the discharge. That spiral is
+        sized for BEP flow. At BEP, pressure around the outside of the impeller is even all the way
+        around and the forces cancel out. Off BEP, pressure gets higher on one side than the other,
+        and that imbalance is a net sideways push on the impeller. The impeller hangs off the end of
+        the shaft past the bearings (think diving board), so a sideways push bends the shaft a little.
+        That's what wears out bearings and mechanical seals, because a seal is two flat faces that
+        only work if they stay lined up.
+      </p>
+
+      <blockquote><p>[add visual here]</p></blockquote>
+
+      <p>
+        <strong>The liquid stops hitting the vanes at the right angle.</strong> Impeller vanes are
+        shaped for liquid arriving one specific way, which again is BEP. Off design, the flow hits
+        them at the wrong angle and separates off the vanes, and that's what causes internal
+        recirculation.
+      </p>
+
+      <blockquote><p>[add visual here]</p></blockquote>
+
+      <p>Which way you've strayed changes how it fails:</p>
+
+      <p>
+        <strong>Too far left (low flow)</strong> and you get internal recirculation plus heat
+        buildup, because you're dumping shaft energy into a small amount of liquid that has nowhere
+        to go. That's why pumps have a minimum flow spec and often a recirculation line back to the
+        suction so you can throttle your discharge without endangering the pump.
+      </p>
+
+      <p>
+        <strong>Too far right (toward runout)</strong> and required NPSH (net positive suction head)
+        goes up, so you're more likely to cavitate, and you can overload the motor.
+      </p>
+
+      <p>Same underlying cause, two different ways to wreck the pump.</p>
+
+      <h3 id="npsh">
+        NPSH without the textbook language<a class="anchor" href="#npsh" aria-label="Link to this section">#</a>
+      </h3>
+
+      <p>
+        NPSH available is how much pressure margin the system is giving you at the suction, above the
+        liquid's vapor pressure. NPSH required is how much the pump needs so the liquid doesn't
+        vaporize inside it. Available has to be bigger than required.
+      </p>
+
+      <p>
+        When it isn't, you cavitate. Pressure at the impeller inlet drops below the liquid's vapor
+        pressure, so the liquid boils and forms vapor bubbles. Those bubbles get carried through the
+        impeller into a higher pressure region and collapse, and that collapse is violent enough to
+        chip away at the metal. You lose flow, the pump vibrates, and it slowly eats its own
+        impeller.
+      </p>
+
+      <p>
+        Flashing is the related failure that people mix up with it. Same starting point, the liquid
+        vaporizes, but the vapor never gets back above vapor pressure so the bubbles don't collapse.
+        They just carry through and out the discharge. You still lose flow, but you're not chewing up
+        the impeller, so it's quieter and less destructive than cavitation.
+      </p>
+
+      <p>
+        Many pump problems turn out to be suction side problems. A plugged strainer, a low tank
+        level, or a hotter-than-normal feed all eat into your NPSH available.
+      </p>
+
+      <h3 id="centrifugal-vs-pd">
+        Centrifugal vs. PD, and the part that actually matters<a
+          class="anchor"
+          href="#centrifugal-vs-pd"
+          aria-label="Link to this section"
+          >#</a
+        >
+      </h3>
+
+      <p>
+        A centrifugal has a full curve. A PD pump basically gives you a constant flow rate no matter
+        what the discharge pressure is, so its curve is close to vertical.
+      </p>
+
+      <p>The practical consequence is the thing worth remembering:</p>
+
+      <p>
+        The maximum pressure a centrifugal pump can ever put out is its suction pressure, plus the
+        differential head at deadhead. Block the discharge and pressure climbs to that ceiling and
+        stops there, so the system sees a known max.
+      </p>
+
+      <p>
+        A PD pump usually doesn't have one. Block the discharge on a gear, screw, reciprocating, or
+        motor-driven metering pump and it will just keep making pressure until something breaks,
+        which is why those need relief protection and centrifugals generally don't. An exception to
+        this is air-operated diaphragm pumps, whose maximum pressures are dictated by the pressure of
+        the supplied air.
+      </p>
+
+      <p>
+        So the better way to think about it isn't "centrifugal vs. PD," it's "what actually sets the
+        ceiling here." On a centrifugal it's deadhead pressure. On an air-operated diaphragm pump
+        it's whatever the air header is regulated to (so if that regulator is set high enough, you
+        can still overpressure something downstream). On anything positively driven, there is no
+        ceiling, and the answer is whatever fails first.
+      </p>
+
+      <h3 id="speccing-a-pump">
+        If someone asks how you'd spec a pump<a
+          class="anchor"
+          href="#speccing-a-pump"
+          aria-label="Link to this section"
+          >#</a
+        >
+      </h3>
+
+      <p>Stuff you'd need to know:</p>
+
+      <ul>
+        <li>Flow rate and head you need</li>
+        <li>Fluid properties (viscosity, density, temperature, how corrosive it is)</li>
+        <li>Materials of construction</li>
+        <li>NPSH available in the system</li>
+        <li>
+          Centrifugal or PD, which mostly comes down to viscosity, how stable you need the flow, and
+          pressure
+        </li>
+      </ul>
+
+      <p>
+        High viscosity in particular tends to push you toward PD, because centrifugals lose
+        efficiency badly on viscous fluids.
+      </p>
+
+      <h2 id="diagrams">
+        Diagram<a class="anchor" href="#diagrams" aria-label="Link to this section">#</a>
+      </h2>
+
+      <blockquote>
+        <p>
+          [Two curves side by side. Left: centrifugal, head on y and flow on x, sloping down to the
+          right, labeled with shutoff/deadhead at zero flow, BEP in the middle, runout at the far
+          right, and a system curve overlaid with the operating point marked at the intersection.
+          Right: PD, near vertical line showing flow basically independent of pressure, labeled "no
+          pressure ceiling, needs relief protection."]
+        </p>
+      </blockquote>
+
+      <p>
+        Seeing them next to each other makes the overpressure thing click without anyone having to
+        explain it.
+      </p>
+
+      <h2 id="vocabulary">
+        Vocabulary<a class="anchor" href="#vocabulary" aria-label="Link to this section">#</a>
+      </h2>
+
+      <p>
+        These get thrown around in conversation with zero explanation, so it's worth being able to
+        use them naturally.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Term</th>
+            <th scope="col">What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Deadhead / shutoff head</th>
+            <td>Zero flow, discharge blocked. The most pressure a centrifugal can make.</td>
+          </tr>
+          <tr>
+            <th scope="row">Runout</th>
+            <td>Far right of the curve. Max flow, min head.</td>
+          </tr>
+          <tr>
+            <th scope="row">BEP</th>
+            <td>Best efficiency point. Where the pump wants to operate.</td>
+          </tr>
+          <tr>
+            <th scope="row">Minimum flow</th>
+            <td>
+              The lowest rate you can run at before heat and recirculation start doing damage.
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Recirculation line</th>
+            <td>A line back to suction that keeps you above minimum flow.</td>
+          </tr>
+          <tr>
+            <th scope="row">NPSHa / NPSHr</th>
+            <td>
+              Suction pressure margin you have vs. what the pump needs. Available has to beat
+              required.
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Cavitation</th>
+            <td>
+              Liquid vaporizes at the low pressure suction and then the bubbles collapse violently
+              once pressure comes back up inside the pump. Sounds like the pump is full of gravel.
+              Eats the impeller.
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Flashing</th>
+            <td>
+              Liquid vaporizes and stays vapor through the pump, so you lose flow instead of chewing
+              up metal.
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Dry running</th>
+            <td>Pump running with no liquid in it. This kills seals very fast.</td>
+          </tr>
+          <tr>
+            <th scope="row">Mechanical seal</th>
+            <td>Seals the shaft where it goes into the casing. Very common failure point.</td>
+          </tr>
+          <tr>
+            <th scope="row">Wear rings</th>
+            <td>
+              Replaceable clearance rings. As they wear you get more internal recirculation and the
+              pump falls off its curve.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="troubleshooting">
+        Troubleshooting<a class="anchor" href="#troubleshooting" aria-label="Link to this section">#</a>
+      </h2>
+
+      <p>
+        By far the most common symptom of a misbehaving pump is seeing that you&rsquo;re not getting
+        the flow that you should be.
+      </p>
+
+      <p>
+        What matters in an interview isn't rattling off causes, it's showing you have a robust method
+        to find what the root cause is.
+      </p>
+
+      <p>
+        <strong>1. Say what the problem actually is.</strong> "The pump is broken" isn't a problem
+        statement. "We're getting 400 gpm and we should be at 600" is.
+      </p>
+
+      <p>
+        <strong>2. Figure out what normal looks like.</strong> Pull the curve. Where should this pump
+        be running given current system conditions? What was it doing last month? You can't call
+        something abnormal without knowing what normal was.
+      </p>
+
+      <p>
+        <strong>3. Come up with ideas, and look at the whole system, not just the pump.</strong>
+      </p>
+
+      <ul>
+        <li>
+          Is it operating on its curve? If your discharge pressure and flow don't land on the curve,
+          the pump itself has degraded.
+        </li>
+        <li>
+          Is something blocked? Plugged suction strainer, a valve that's closed or partly closed,
+          fouled line. Suction side restrictions also eat your NPSH.
+        </li>
+        <li>
+          Is it a suction problem? Low tank level, hot feed, vapor binding. Check NPSH available.
+        </li>
+        <li>
+          Is it cavitating? Go listen to it. Cavitation sounds like the pump is pumping gravel, and
+          operators usually know before the instruments do.
+        </li>
+        <li>Did something in the system change? New lineup, different valve position, different feed.</li>
+      </ul>
+
+      <p>
+        <strong>4. Go talk to people.</strong> This is arguably the best approach for new engineers.
+        This is the part nobody teaches you in school and it's most of the actual job.
+      </p>
+
+      <ul>
+        <li>Have we had this issue on this pump before? Ask operations.</li>
+        <li>When was it last overhauled? Ask maintenance.</li>
+        <li>
+          What's our long term strategy for this pump? Is it due, is it a known bad actor, is it
+          spared? Ask maintenance/operations.
+        </li>
+        <li>What do the operators hear when they walk past it?</li>
+      </ul>
+
+      <p>
+        A huge amount of real troubleshooting is just going and getting knowledge that already exists
+        somewhere in the organization. There was a great quote in my college reactions engineering
+        textbook: &ldquo;The next best thing to knowing something is knowing where to find it.&rdquo;
+      </p>
+
+      <p>
+        <strong>5. Decide what data would prove or kill each idea.</strong> For everything on your
+        list, what measurement would confirm or eliminate it? Suction and discharge pressure puts you
+        on the curve. Differential pressure across the strainer tells you about plugging. Motor amps
+        tell you about load. Then go get the data.
+      </p>
+
+      <p>
+        That last step is what separates someone thinking like an engineer from someone guessing, and
+        in an interview, saying it out loud is often worth more than actually landing on the right
+        answer.
+      </p>
+
+      <h2 id="cram-sheet">
+        Cram sheet<a class="anchor" href="#cram-sheet" aria-label="Link to this section">#</a>
+      </h2>
+
+      <p>Read this the night before.</p>
+
+      <ul class="cram">
+        <li>A pump pressurizes liquid. No pressure, no flow.</li>
+        <li>
+          Centrifugal has a full curve and head drops as flow rises. PD gives near constant flow
+          regardless of pressure.
+        </li>
+        <li>
+          Deadhead/shutoff is far left at zero flow, and it's the max pressure a centrifugal can
+          make. Runout is far right at max flow. BEP is in the middle where you want to be.
+        </li>
+        <li>
+          Close the discharge valve and flow goes down, pressure goes up, you move left on the curve.
+          Open it and the opposite happens.
+        </li>
+        <li>
+          Off BEP means uneven pressure around the impeller, radial thrust on the shaft, shaft
+          deflection, and worn bearings and seals.
+        </li>
+        <li>
+          Too far left is recirculation and heat. Too far right is higher NPSHr, cavitation, and
+          motor overload.
+        </li>
+        <li>
+          NPSHa has to beat NPSHr or else you cavitate. Most pump problems are suction side problems.
+        </li>
+        <li>
+          Cavitation is bubbles forming and collapsing. Eats the impeller, sounds like gravel.
+          Flashing is when those bubbles form but never collapse, sending vapor through the pump.
+        </li>
+        <li>
+          Ask what sets the pressure ceiling. Centrifugal tops out at suction pressure + differential
+          pressure at deadhead. Air-operated diaphragm pumps stall at about the air supply pressure.
+          Anything positively driven (gear, screw, reciprocating, motor-driven metering) has no
+          ceiling and needs relief protection.
+        </li>
+        <li>
+          Not making rate? Check the curve, check for blockages, check suction, listen for
+          cavitation, then go ask operations and maintenance what they know.
+        </li>
+        <li>
+          Off the curve means a degraded pump, and wear rings and the impeller are usually the
+          culprits.
+        </li>
+      </ul>
+
+      <h2 id="questions">
+        Questions people actually get asked<a class="anchor" href="#questions" aria-label="Link to this section">#</a>
+      </h2>
+
+      <p><strong>"Where's the deadhead point on a pump curve?"</strong></p>
+
+      <p>
+        Far left, zero flow. What they're really checking is whether you can read a curve at all, and
+        whether you get that a centrifugal has a hard ceiling on the pressure it can make.
+      </p>
+
+      <p>
+        <em>More coming. If you got asked something good in a technical interview, send it in.</em>
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <p>Written by one process engineer at a refinery. Corrections welcome.</p>
+      <p><a href="../about.html">About this site</a></p>
+    </footer>
+
+    <script src="../assets/modules.js" defer></script>
+  </body>
+</html>

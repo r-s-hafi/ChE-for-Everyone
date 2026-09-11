@@ -1,78 +1,136 @@
-# ChemE for Everyone
+# ChE for Everyone
 
-Working title. See `product-design-spec.md` for what this is and who it's for.
+What chemical engineering school skips and the plant expects you to know. Written first person by a process engineer at a refinery, aimed at students prepping for technical interviews.
 
-## Running it
+Live at **https://r-s-hafi.github.io/ChE-for-Everyone/**
+
+The build brief is [docs/pds.md](docs/pds.md). Read that first if you're wondering why something is the way it is.
+
+---
+
+## How this site is built
+
+Hand-written HTML and one stylesheet. **No build step, no dependencies, no npm, nothing to install.** You edit a `.html` file, double-click it to see the result, commit, and the live site updates a minute later.
+
+That's a deliberate choice, not a stopgap. The previous attempt at this site died in frontend scope with no pages written, and the content is the only thing here that can't be bought or copied. A toolchain you have to maintain is a way to spend evenings not writing about compressors.
+
+### Preview
+
+Double-click any `.html` file. That's it. There's no dev server to start, which is why every link on the site keeps its `.html` extension — a `file://` page has no server to resolve extensionless URLs.
+
+### Deploy
+
+Push to `main`. GitHub Pages is set to **Deploy from a branch** → `main` → `/ (root)`, so there's no workflow to run and nothing to break. `.nojekyll` tells Pages to serve the files as-is instead of running Jekyll over them.
+
+### Optional: check your links
+
+Broken links are the one thing that really bites a hand-written site, so there's a checker:
 
 ```
-npm install
-npm run dev      # http://localhost:4321
-npm run build    # content check, then static build into dist/
-npm run preview  # serve dist/
+node check-site.mjs
 ```
 
-Node 24. Astro 7, static output, no server.
+It reads every `.html` file and reports broken links, `#anchor` links pointing at ids that don't exist, page shells that have drifted apart, and leftover `TOPIC NAME`-style placeholders. It needs Node but **no packages**, it writes nothing, and it is not part of building or deploying anything — the site works fine if you never run it, and deleting the file breaks nothing. Worth running before a push that touched more than one page.
+
+---
 
 ## Adding a topic
 
-Drop a markdown file in `src/content/equipment/` or `src/content/concepts/`.
-The filename stem has to match the `slug`, and the folder has to match the
-`category`. Nothing else gets touched - no template, no route, no nav.
+1. Copy `template.html` to `equipment/<slug>.html` or `concepts/<slug>.html`.
+2. Replace every ALL-CAPS placeholder in the file (title, description, canonical URL).
+3. Write the sections you have. Delete the comment blocks for the ones you don't — an empty section should not exist, rather than sit there as a hollow heading.
+4. Add a `<li>` to `equipment/index.html` or `concepts/index.html`, and to `index.html`. Drop `class="is-stub"` from the `<li>` once the page is actually written.
+5. If you wrote a cram sheet, paste it into `cram.html` too. See the rules below.
 
-```yaml
+Every `<h2>` and `<h3>` needs an `id` so it can be linked to directly. `template.html` shows the pattern, including the `#` anchor link that goes inside the heading.
+
+### The nine sections
+
+Same skeleton on every page, in this order, from [docs/pds.md](docs/pds.md) section 5:
+
+1. Why do I care?
+2. School vs. reality
+3. What it actually does
+4. What actually matters
+5. Diagrams
+6. Vocabulary
+7. Troubleshooting
+8. Cram sheet
+9. Questions people actually get asked
+
+These names describe what each section is *for*, not what it has to be *called* on the page. `equipment/pumps.html` opens its "why do I care" section with "I got asked this and completely blanked," which is better. Use your own wording; keep the `id` values as they are so links stay predictable across pages.
+
+`equipment/pumps.html` is the reference implementation and the voice benchmark.
+
+### Tracking how solid a page is
+
+Line 2 of every topic page is a comment:
+
+```html
+<!-- status: complete | confidence: high | reviewed_by: (none yet) | updated: 2026-09-11 -->
+```
+
+This is [docs/pds.md](docs/pds.md) section 4's frontmatter, kept as author-facing metadata since there's no generator to read it. Accuracy is the entire product and your depth varies by topic, so keep `confidence` honest. Pages marked `low` say so in their body, in plain language, and should stay stubs until they've been researched and reviewed.
+
 ---
-title: Compressors
-slug: compressors
-category: equipment
-status: stub              # complete | draft | stub
-summary: One line for cards and the meta description.
-confidence: low           # high | medium | low - your own depth
-reviewed_by: ""           # non-empty once an SME has checked it
-updated: 2026-09-09
-sections:                 # one entry per "##" heading, in template order
-  - war-story
-  - cram-sheet
+
+## Two maintenance rules
+
+These are the price of having no build step. Both are cheap if you remember them and annoying if you don't.
+
+**1. Editing a cram sheet means editing `cram.html` too.** That page is every cram sheet in one place, so the content is deliberately duplicated. A stale cram sheet is worse than no cram sheet, because someone is reading it the night before an interview.
+
+**2. Changing the nav or footer is a find-and-replace across every `.html` file.** The page shell is intentionally identical in all of them — byte for byte — so a find-and-replace is safe. Don't hand-edit one page's shell into something slightly different, or you lose that guarantee.
+
+Anything *visual* is exempt from rule 2. All styling lives in `assets/style.css`, so colors, type, spacing, and layout are always a one-file change.
+
 ---
-```
 
-`sections` maps your `##` headings onto the nine template slots, in order:
-
-`war-story`, `school-vs-reality`, `what-it-does`, `what-matters`, `diagrams`,
-`vocabulary`, `troubleshooting`, `cram-sheet`, `questions`
-
-Your headings can say whatever you want - the mapping is positional, so the
-slot ids never show up in the writing. Leave out the slots a page doesn't have
-and they simply don't render. Two slots pick up an affordance automatically: the
-cram sheet gets a copy button, and the questions section gets a submission link.
-
-`npm run check:content` (which `npm run build` runs first) fails if the list and
-the headings don't line up, so a broken page can't quietly vanish from a deploy.
-
-## Where things live
+## Layout
 
 ```
-src/
-  sections.mjs                    the nine template slots - single source of truth
-  site.config.ts                  name, origin, submission link
-  content.config.ts               frontmatter schema
-  content/equipment/*.md          the writing
-  content/concepts/*.md
-  layouts/BaseLayout.astro        html shell, meta and OG tags
-  layouts/TopicLayout.astro       topic page chrome, cram-sheet copy script
-  pages/[category]/[slug].astro   the topic route
-  plugins/topic-sections.mjs      section wrapping, heading ids and anchors
-  styles/global.css               everything, for now
-scripts/check-content.mjs         pre-build content check
+index.html              /                    landing: the premise, then the topic list
+about.html              /about
+cram.html               /cram                every cram sheet in one page
+template.html                                copy this to start a topic; never linked
+equipment/
+  index.html            /equipment
+  pumps.html            /equipment/pumps     complete
+  ...                                        11 stubs
+concepts/
+  index.html            /concepts
+  ...                                        6 stubs
+assets/
+  style.css                                  the only stylesheet
+  modules.js                                 module registry, currently empty
+  favicon.svg
+content/literature/     [reserved]
+modules/                [reserved]           one folder per interactive module
+simulator/              [reserved]           Python simulation code, not here yet
+docs/pds.md                                  the build brief
 ```
 
-## Deploying
+GitHub Pages serves `equipment/pumps.html` at `/equipment/pumps`, so the clean routes in [docs/pds.md](docs/pds.md) section 8 come free from naming files sensibly.
 
-`.github/workflows/deploy.yml` builds and publishes to GitHub Pages on a push to
-`main`. Before the first run, set Pages to deploy from GitHub Actions and put the
-real URL in `SITE.origin`. Netlify and Cloudflare Pages both work with no config
-if you'd rather - build `npm run build`, publish `dist/`.
+Links are **relative** (`../index.html` from a topic page), which means the site works unchanged on `file://`, on the GitHub Pages subpath, and on a custom domain later. Root-relative links would break on two of those three.
 
-## Build order
+Reserved directories hold a `.gitkeep` and a README saying what goes there. `/literature`, `/jobs`, and `/simulations` are not built.
 
-Steps 1-4 of `product-design-spec.md` section 12 are done. Next up: stub every
-topic in section 8, then the landing page and `/cram`.
+---
+
+## Interactive modules
+
+None exist. `assets/modules.js` is the slot they drop into: a registry object and a loop that mounts any `<div data-module="slug">` whose slug is registered, and silently ignores the ones that aren't. See [modules/README.md](modules/README.md) for the contract.
+
+The hard rule is that modules are progressive enhancement. Every page has to be complete and useful with JavaScript off, because the content is the product.
+
+---
+
+## If the no-build approach stops paying off
+
+It's a real tradeoff and it can expire. Two signals to watch for:
+
+- You want to change the nav or footer and you put it off because it's 24 files.
+- You notice `cram.html` has drifted out of date.
+
+Either one means the duplication has started costing more than a toolchain would. Moving to a generator later is straightforward — Markdown converts cleanly from this HTML, and `assets/style.css` carries over untouched. Until then, this is less work.

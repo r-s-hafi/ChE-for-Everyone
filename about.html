@@ -1,0 +1,145 @@
+<!doctype html>
+<!--
+  About page.
+
+  This is the page most worth rewriting in your own words - it's the one that
+  makes a stranger decide whether to trust the technical content. The framing
+  below comes from docs/pds.md sections 1 and 2, which you wrote, but it's
+  deliberately impersonal because a few things are still open questions:
+
+    - Your name. Not on the page right now. Add it if you want the credibility;
+      leave it off if you'd rather not be searchable next to your employer.
+    - Whether to name the employer. Open question in docs/pds.md section 13.
+    - Contact currently goes to GitHub issues. Fine to start; swap in an email
+      or a form if you'd rather not require readers to have an account.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>About — ChE for Everyone</title>
+    <meta
+      name="description"
+      content="Who writes this and why: a process engineer at a refinery, writing down what chemical engineering school skips."
+    />
+    <link rel="canonical" href="https://r-s-hafi.github.io/ChE-for-Everyone/about" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="ChE for Everyone" />
+    <meta property="og:title" content="About ChE for Everyone" />
+    <meta
+      property="og:description"
+      content="Who writes this and why: a process engineer at a refinery, writing down what school skips."
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to the words</a>
+
+    <header class="site-header">
+      <a class="site-name" href="index.html">ChE for Everyone</a>
+      <nav class="site-nav" aria-label="Sections">
+        <a href="equipment/index.html">Equipment</a>
+        <a href="concepts/index.html">Concepts</a>
+        <a href="cram.html">Cram</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <h1>About</h1>
+
+      <p class="summary">
+        I'm a process engineer at a refinery. This site is the stuff I wish someone had written down
+        before my first technical interview.
+      </p>
+
+      <h2 id="why">Why this exists<a class="anchor" href="#why" aria-label="Link to this section">#</a></h2>
+
+      <p>
+        There's a gap between what chemical engineering students learn in school and what industry
+        actually expects them to know. I found it the hard way, in an interview, when a senior
+        principal engineer asked me where the deadhead point was on a pump curve and I had nothing.
+        Everyone on that plant would call it a basic question. Four years and a 4.0 hadn't put it in
+        front of me once.
+      </p>
+
+      <p>
+        So this is a free resource that tries to close that gap. Everything here is written first
+        person from direct plant experience, not assembled out of textbooks. That's the only reason
+        it's worth reading, and it's also the limit on how fast it can grow.
+      </p>
+
+      <h2 id="scope">
+        What's in scope<a class="anchor" href="#scope" aria-label="Link to this section">#</a>
+      </h2>
+
+      <p>
+        Oil, gas, and refining, deliberately. I'd rather cover a narrow area honestly than a broad
+        one badly. If you're going into pharma or specialty chemicals, some of this transfers and
+        some of it won't, and I'd rather you know which is which.
+      </p>
+
+      <p>
+        Most of the topic list isn't written yet. It's all listed anyway, because a site that hides
+        its gaps wastes your time.
+      </p>
+
+      <h2 id="accuracy">
+        On accuracy<a class="anchor" href="#accuracy" aria-label="Link to this section">#</a>
+      </h2>
+
+      <p>
+        My depth isn't the same across every topic. Pumps and tanks I live with; compressors and
+        fired heaters I'll need to research properly and have reviewed by someone who knows them
+        before I publish. Each page tracks that internally, and pages where I'm on thinner ice say so
+        out loud.
+      </p>
+
+      <p>
+        None of this is written by a language model. That's the whole point &mdash; a page a model
+        could have produced has no reason to exist, and you can already get that anywhere.
+      </p>
+
+      <p>
+        If something here is wrong, I want to know. Corrections are the most useful thing you can
+        send me, and I'd rather be embarrassed once than leave bad information in front of someone
+        walking into an interview.
+      </p>
+
+      <h2 id="contact">
+        Getting in touch<a class="anchor" href="#contact" aria-label="Link to this section">#</a>
+      </h2>
+
+      <!--
+        This points at GitHub issues because it's a channel that works today and
+        doesn't require deciding how public you want to be. Swap in an email
+        address or a form when you'd rather not make readers have an account.
+      -->
+      <p>
+        Corrections, questions you got asked in a technical interview, or topics you wish were
+        covered:
+        <a href="https://github.com/r-s-hafi/ChE-for-Everyone/issues">open an issue on GitHub</a>.
+      </p>
+
+      <p>
+        Interview questions are especially welcome. The "questions people actually get asked" section
+        on each page is only as good as the supply of real questions, and mine is one person's
+        sample.
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <p>Written by one process engineer at a refinery. Corrections welcome.</p>
+      <p><a href="index.html">Back to the topic list</a></p>
+    </footer>
+
+    <script src="assets/modules.js" defer></script>
+  </body>
+</html>

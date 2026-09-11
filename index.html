@@ -1,0 +1,257 @@
+<!doctype html>
+<!--
+  Landing page. Its one job is to convince a stressed student this is worth
+  twenty minutes: the premise, then the topic list. No feature grid.
+
+  The premise paragraphs below are the author's own words, lifted from
+  docs/pds.md section 1. Rewrite them in your voice whenever you like.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>ChE for Everyone</title>
+    <meta
+      name="description"
+      content="What chemical engineering school skips and the plant expects you to know. Written by a process engineer at a refinery, for students prepping for technical interviews."
+    />
+    <link rel="canonical" href="https://r-s-hafi.github.io/ChE-for-Everyone/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ChE for Everyone" />
+    <meta property="og:title" content="ChE for Everyone" />
+    <meta
+      property="og:description"
+      content="What chemical engineering school skips and the plant expects you to know."
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to the words</a>
+
+    <header class="site-header">
+      <a class="site-name" href="index.html">ChE for Everyone</a>
+      <nav class="site-nav" aria-label="Sections">
+        <a href="equipment/index.html">Equipment</a>
+        <a href="concepts/index.html">Concepts</a>
+        <a href="cram.html">Cram</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <h1>What school skips</h1>
+
+      <p class="summary">
+        A free resource that closes the gap between what chemical engineering students learn in
+        school and what industry actually expects them to know.
+      </p>
+
+      <p>
+        Written first person by a process engineer at a refinery. The value here is direct plant
+        experience, not textbook coverage. Right now it's all oil, gas, and refining, because that's
+        what I can speak to honestly.
+      </p>
+
+      <p>
+        If you have an interview coming up and you're short on time, read
+        <a href="equipment/pumps.html">pumps</a>. It's the one topic I'd spend an hour on, and it's
+        the question I personally blanked on in front of a senior principal engineer.
+      </p>
+
+      <p>
+        Most of the pages below aren't written yet. They're listed anyway so you can tell in ten
+        seconds whether what you need is here.
+      </p>
+
+      <h2 id="equipment">
+        Equipment<a class="anchor" href="#equipment" aria-label="Link to this section">#</a>
+      </h2>
+
+      <ul class="topics">
+        <li>
+          <a href="equipment/pumps.html">
+            <span class="topic-title">Pumps</span>
+            <span class="topic-summary"
+              >The pump curve, NPSH, and what sets the pressure ceiling. If you only have time for
+              one fluids topic, make it this one.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="equipment/control-valves.html">
+            <span class="topic-title">Control valves</span>
+            <span class="topic-summary"
+              >Cv, valve characteristics, and why a valve is either controlling something or it is
+              just a restriction.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="equipment/heat-exchangers.html">
+            <span class="topic-title">Heat exchangers</span>
+            <span class="topic-summary"
+              >Shell and tube arrangements, approach temperature, and how fouling quietly eats your
+              performance.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="equipment/distillation-columns.html">
+            <span class="topic-title">Distillation columns</span>
+            <span class="topic-summary"
+              >Reflux ratio, trays versus packing, flooding, and what the temperature profile is
+              telling you.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="equipment/tanks-and-vessels.html">
+            <span class="topic-title">Tanks and vessels</span>
+            <span class="topic-summary"
+              >Level measurement, blanketing, breathing losses, and the failure modes nobody warns
+              you about.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="equipment/compressors.html">
+            <span class="topic-title">Compressors</span>
+            <span class="topic-summary"
+              >Centrifugal versus reciprocating, surge, and why compressors are harder to live with
+              than pumps.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="equipment/fired-heaters.html">
+            <span class="topic-title">Fired heaters</span>
+            <span class="topic-summary"
+              >Draft, tube skin temperatures, coking, and the interlocks that exist because of past
+              incidents.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="equipment/piping-and-hydraulics.html">
+            <span class="topic-title">Piping and hydraulics</span>
+            <span class="topic-summary"
+              >Line sizing, pressure drop, two-phase flow, and building the system curve a pump has
+              to work against.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="equipment/relief-systems.html">
+            <span class="topic-title">Relief systems and PSVs</span>
+            <span class="topic-summary"
+              >Overpressure scenarios, set pressure versus MAWP, and why a relief calculation is
+              effectively a legal document.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="equipment/filters-and-strainers.html">
+            <span class="topic-title">Filters and strainers</span>
+            <span class="topic-summary"
+              >Differential pressure as a diagnostic, changeout criteria, and what plugging does to
+              everything upstream.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="equipment/steam-systems.html">
+            <span class="topic-title">Steam systems</span>
+            <span class="topic-summary"
+              >Headers, traps, condensate return, and why steam quality turns up in problems that
+              look unrelated.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="equipment/instrumentation-basics.html">
+            <span class="topic-title">Instrumentation basics</span>
+            <span class="topic-summary"
+              >What a transmitter is actually measuring, why it drifts, and when not to believe
+              one.</span
+            >
+          </a>
+        </li>
+      </ul>
+
+      <h2 id="concepts">
+        Concepts<a class="anchor" href="#concepts" aria-label="Link to this section">#</a>
+      </h2>
+
+      <ul class="topics">
+        <li class="is-stub">
+          <a href="concepts/troubleshooting-method.html">
+            <span class="topic-title">The troubleshooting method</span>
+            <span class="topic-summary"
+              >The general version of the method in the pumps page, applied to anything that is
+              misbehaving.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="concepts/reading-a-pid.html">
+            <span class="topic-title">How to read a P&amp;ID</span>
+            <span class="topic-summary"
+              >Line numbers, valve symbols, instrument bubbles, and how to trace a system end to
+              end.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="concepts/what-a-process-engineer-does.html">
+            <span class="topic-title">What a process engineer actually does</span>
+            <span class="topic-summary"
+              >The real job: where the day goes, who you talk to, and how little of it resembles
+              coursework.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="concepts/operations-and-maintenance.html">
+            <span class="topic-title">Working with operations and maintenance</span>
+            <span class="topic-summary"
+              >How to ask for things, why credibility is the only currency you have, and what gets
+              you ignored.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="concepts/process-safety.html">
+            <span class="topic-title">Practical process safety</span>
+            <span class="topic-summary"
+              >What PHA, LOPA, and management of change actually feel like to sit through and to
+              own.</span
+            >
+          </a>
+        </li>
+        <li class="is-stub">
+          <a href="concepts/interview-prep.html">
+            <span class="topic-title">Interview prep strategy</span>
+            <span class="topic-summary"
+              >What technical interviews are really testing, and how to spend the last week before
+              one.</span
+            >
+          </a>
+        </li>
+      </ul>
+    </main>
+
+    <footer class="site-footer">
+      <p>Written by one process engineer at a refinery. Corrections welcome.</p>
+      <p><a href="about.html">About this site</a></p>
+    </footer>
+
+    <script src="assets/modules.js" defer></script>
+  </body>
+</html>

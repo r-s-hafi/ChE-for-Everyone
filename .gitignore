@@ -1,13 +1,4 @@
-node_modules/
-dist/
-.astro/
-.env
-.env.production
+# There's no build output and no dependencies, so this only covers OS clutter.
 .DS_Store
-
-# Machine-specific local tooling config
-.claude/
-
-# Impeccable ships a 15MB per-platform binary. The tool provides it per machine,
-# and its hooks no-op when the script isn't there, so it stays out of history.
-.github/skills/impeccable/scripts/bin/
+Thumbs.db
+desktop.ini

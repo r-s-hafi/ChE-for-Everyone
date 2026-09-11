@@ -1,0 +1,139 @@
+<!doctype html>
+<!--
+  ============================================================================
+  MAINTENANCE RULE: this page duplicates the cram sheet from every topic page.
+
+  When you change a cram sheet on a topic page, change it here too. There is no
+  build step to do it for you, and a stale cram sheet is worse than no cram
+  sheet - someone is reading this the night before an interview.
+
+  Order matches the equipment index, then concepts.
+  ============================================================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>Cram sheets — ChE for Everyone</title>
+    <meta
+      name="description"
+      content="Every cram sheet on this site in one scrollable page. For when you have an hour left before a technical interview."
+    />
+    <link rel="canonical" href="https://r-s-hafi.github.io/ChE-for-Everyone/cram" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="ChE for Everyone" />
+    <meta property="og:title" content="Cram sheets" />
+    <meta
+      property="og:description"
+      content="Every cram sheet on this site in one scrollable page."
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to the words</a>
+
+    <header class="site-header">
+      <a class="site-name" href="index.html">ChE for Everyone</a>
+      <nav class="site-nav" aria-label="Sections">
+        <a href="equipment/index.html">Equipment</a>
+        <a href="concepts/index.html">Concepts</a>
+        <a href="cram.html">Cram</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <h1>Cram sheets</h1>
+
+      <p class="summary">
+        Every cram sheet on this site, in one page. If you have an hour left, this is the page.
+      </p>
+
+      <p>
+        These are the night-before versions. Each one is the bottom of a longer topic page, and if
+        something here doesn't make sense, follow the link and read the section it came from &mdash;
+        knowing the reason behind a bullet is what actually holds up under a follow-up question.
+      </p>
+
+      <p>One topic is written so far. This page grows as the rest do.</p>
+
+      <div class="cram-topic">
+        <h2 id="pumps">Pumps<a class="anchor" href="#pumps" aria-label="Link to this section">#</a></h2>
+        <p class="cram-source"><a href="equipment/pumps.html">Read the full pumps page</a></p>
+
+        <ul class="cram">
+          <li>A pump pressurizes liquid. No pressure, no flow.</li>
+          <li>
+            Centrifugal has a full curve and head drops as flow rises. PD gives near constant flow
+            regardless of pressure.
+          </li>
+          <li>
+            Deadhead/shutoff is far left at zero flow, and it's the max pressure a centrifugal can
+            make. Runout is far right at max flow. BEP is in the middle where you want to be.
+          </li>
+          <li>
+            Close the discharge valve and flow goes down, pressure goes up, you move left on the
+            curve. Open it and the opposite happens.
+          </li>
+          <li>
+            Off BEP means uneven pressure around the impeller, radial thrust on the shaft, shaft
+            deflection, and worn bearings and seals.
+          </li>
+          <li>
+            Too far left is recirculation and heat. Too far right is higher NPSHr, cavitation, and
+            motor overload.
+          </li>
+          <li>
+            NPSHa has to beat NPSHr or else you cavitate. Most pump problems are suction side
+            problems.
+          </li>
+          <li>
+            Cavitation is bubbles forming and collapsing. Eats the impeller, sounds like gravel.
+            Flashing is when those bubbles form but never collapse, sending vapor through the pump.
+          </li>
+          <li>
+            Ask what sets the pressure ceiling. Centrifugal tops out at suction pressure +
+            differential pressure at deadhead. Air-operated diaphragm pumps stall at about the air
+            supply pressure. Anything positively driven (gear, screw, reciprocating, motor-driven
+            metering) has no ceiling and needs relief protection.
+          </li>
+          <li>
+            Not making rate? Check the curve, check for blockages, check suction, listen for
+            cavitation, then go ask operations and maintenance what they know.
+          </li>
+          <li>
+            Off the curve means a degraded pump, and wear rings and the impeller are usually the
+            culprits.
+          </li>
+        </ul>
+      </div>
+
+      <h2 id="whats-next">
+        What's not here yet<a class="anchor" href="#whats-next" aria-label="Link to this section">#</a>
+      </h2>
+
+      <p>
+        Control valves, heat exchangers, distillation columns, tanks, compressors, fired heaters,
+        piping, relief systems, filters, steam, and instrumentation are all planned. So are the
+        concept pages, including the general version of the
+        <a href="concepts/troubleshooting-method.html">troubleshooting method</a>. See
+        <a href="equipment/index.html">equipment</a> and <a href="concepts/index.html">concepts</a>
+        for the full list.
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <p>Written by one process engineer at a refinery. Corrections welcome.</p>
+      <p><a href="about.html">About this site</a></p>
+    </footer>
+
+    <script src="assets/modules.js" defer></script>
+  </body>
+</html>
